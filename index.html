@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>InforMARL</title>
+    <title>Layered-Safe-MARL</title>
 
     <meta name="description" content="Layered-Safe-MARL">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,14 +16,14 @@
     <!-- <meta property="og:image:width" content="1024"> -->
     <!-- <meta property="og:image:height" content="512"> -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://DINaMo-MIT.github.io/InforMARL/" />
+    <meta property="og:url" content="https://DINaMo-MIT.github.io/Layered-Safe-MARL/" />
     <meta property="og:title" content="Layered-Safe-MARL" />
     <meta property="og:description"
         content="Project page for Layered-Safe-MARL: RSS 2025 paper Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety" />
 
     <!--TWITTER-->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="https://DINaMo-MIT.github.io/InforMARL/" />
+    <meta name="twitter:site" content="https://DINaMo-MIT.github.io/Layered-Safe-MARL/" />
     <meta name="twitter:title" content="Layered-Safe-MARL" />
     <meta name="twitter:description"
         content="Project page for Layered-Safe-MARL: RSS 2025 paper Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety" />
@@ -91,7 +91,7 @@
                 <!-- </br> -->
                      <li>
                         <a href="https://www.linkedin.com/in/maria-gabriela-mendoza/" target="_blank" rel="noopener noreferrer">
-                            Maria "Gaby" Mendoza
+                            Maria G. Mendoza
                         </a>
                         </br>UC Berkeley
                     </li>
@@ -120,7 +120,7 @@
                 <ul class="nav nav-pills nav-justified">
                     <li>
                         <a href="https://arxiv.org/abs/2211.02127">
-                            <image src="img/nice_paper_png.png" height="60px">
+                            <image src="img/paper.png" height="60px">
                                 <h4><strong>Paper</strong></h4>
                         </a>
                     </li>
@@ -137,16 +137,16 @@
                                 <h4><strong>Slides</strong></h4>
                         </a>
                     </li>
-                    <!-- <li>
+                    <li>
                         <a href="https://www.youtube.com/watch?v=ooj9E-endGc">
                             <image src="img/yt.png" height="60px">
-                                <h4><strong>YouTube</strong></h4>
+                                <h4><strong>Video</strong></h4>
                         </a>
-                    </li> -->
+                    </li>
                     
                     <li>
                         <a href="http://nsidn98.github.io/files/Publications_assets/InforMARL/poster/ICML_InforMARL_Poster.pdf">
-                            <image src="img/ICML_InforMARL_Poster.png" height="60px">
+                            <image src="img/poster.png" height="60px">
                                 <h4><strong>Poster</strong></h4>
                         </a>
                     </li>
@@ -163,39 +163,25 @@
                     Abstract
                 </h3>
                     <p class="text-justify">
-                        We consider the problem of multi-agent navigation and 
-                        collision avoidance when observations are limited to the 
-                        local neighborhood of each agent. We propose <b>InforMARL</b>, 
-                        a novel architecture for multi-agent reinforcement learning (MARL) 
-                        which uses local information intelligently to compute paths 
-                        for all the agents in a decentralized manner. Specifically, 
-                        InforMARL aggregates information about the local neighborhood 
-                        of agents for both the actor and the critic using a graph 
-                        neural network and can be used in conjunction with any 
-                        standard MARL algorithm. We show that (1) in training, 
-                        InforMARL has better sample efficiency and performance 
-                        than baseline approaches, despite using less information,
-                        and (2) in testing, it scales well to environments
-                        with arbitrary numbers of agents and obstacles.
-                        We illustrate these results using four task environments, 
-                        including one with predetermined goals
-                        for each agent, and one in which the agents collectively 
-                        try to cover all goals.
-
-                        <!-- We consider the problem of multi-agent navigation and 
-                        collision avoidance when observations are limited to the 
-                        local neighborhood of each agent. We propose <b>InforMARL</b>, 
-                        a novel architecture for multi-agent reinforcement learning (MARL) 
-                        which uses local information intelligently to compute paths 
-                        for all the agents in a decentralized manner. Specifically, 
-                        InforMARL aggregates information about the local neighborhood 
-                        of agents for both the actor and the critic using a graph 
-                        neural network and can be used in conjunction with any 
-                        standard MARL algorithm. We show that (1) in training, 
-                        InforMARL has better sample efficiency and performance 
-                        than baseline approaches, despite using less information, 
-                        and (2) in testing, it scales well to environments with 
-                        arbitrary numbers of agents and obstacles. -->
+                        Preventing collisions in multi-robot navigation is crucial for deployment.
+                        This requirement hinders the use of learning-based approaches, such as multi-agent reinforcement learning (MARL),
+                        on their own due to their lack of safety guarantees. Traditional control methods, such as reachability and
+                        control barrier functions, can provide rigorous safety guarantees when
+                        interactions are limited only to a small number of robots.
+                        However, conflicts between the constraints faced by different agents pose a challenge to safe multi-agent coordination. 
+                        <br>
+                        To overcome this challenge, we propose a method that integrates multiple layers of safety by combining MARL with safety filters.
+                        First, MARL is used to learn strategies that minimize multiple agent interactions, where multiple indicates more than two.
+                        Particularly, we focus on interactions likely to result in conflicting constraints within the engagement distance.
+                        Next, for agents that enter the engagement distance, we prioritize pairs requiring the most urgent corrective actions. 
+                        Finally, a dedicated safety filter provides tactical corrective actions to resolve these conflicts. 
+                        Crucially, the design decisions for all layers of this framework are grounded in reachability analysis and
+                         a control barrier-value function-based filtering mechanism.
+                         <br>
+                        We validate our Layered Safe MARL framework in 1) hardware experiments using Crazyflie drones and 
+                        2) high-density advanced aerial mobility (AAM) operation scenarios, where agents navigate to designated waypoints while avoiding collisions.
+                         The results show that our method significantly reduces conflict while maintaining safety without sacrificing much efficiency 
+                         (i.e., shorter travel time and distance) compared to baselines that do not incorporate layered safety. 
                         <br>
                     </p>
             </div>
