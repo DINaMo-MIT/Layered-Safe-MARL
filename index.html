@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+	<title>Fair MARL</title>
+        <meta name="description" content="Layered-Safe-MARL">
+    	<meta property="og:type" content="website" />
+    	<meta property="og:url" content="https://DINaMo-MIT.github.io/Layered-Safe-MARL/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Favicon -->
+        <link rel="icon" type="image/ico" href="bitmoji-avatar-removebg-preview.png">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/main.css">
+        <!-- Font awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Carousel (slickJS) CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+        <style>
+            body.dark-mode {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            .navbar.dark-mode {
+                background-color: #1f1f1f;
+            }
+            .card.dark-mode {
+                background-color: #1f1f1f;
+                color: #ffffff;
+            }
+            .btn.dark-mode {
+                background-color: #333333;
+                color: #ffffff;
+            }
+            .dropdown-menu.dark-mode {
+                background-color: #1f1f1f;
+                color: #ffffff;
+            }
+            .feature-container.dark-mode {
+                background-color: #1f1f1f;
+            }
+            .pub-container.dark-mode {
+                background-color: #1f1f1f;
+            }
+            .custom-jumbotron.dark-mode {
+                background-color: #1f1f1f;
+            }
+            .introduction-container.dark-mode {
+                background-color: #1f1f1f;
+            }
+            .skills-container.dark-mode {
+                background-color: #1f1f1f;
+            }
+            .contact-container.dark-mode {
+                background-color: #1f1f1f;
+            }
+            .footer-container.dark-mode {
+                background-color: #1f1f1f;
+            }
+        </style>
+
+    <!--FACEBOOK-->
+    <!-- <meta property="og:image" content="img/twitter-card.jpg"> -->
+    <!-- <meta property="og:image:type" content="image/png"> -->
+    <!-- <meta property="og:image:width" content="1024"> -->
+    <!-- <meta property="og:image:height" content="512"> -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jaroan.github.io/jasminejerrya/Fair_MARL" />
+    <meta property="og:title" content="Fair MARL" />
+    <meta property="og:description"
+        content="Project page for the Fair MARL paper, Cooperation and Fairness in Multi-Agent Reinforcement Learning." />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://jaroan.github.io/jasminejerrya/Fair_MARL" />
+    <meta name="twitter:title" content="Fair MARL" />
+    <meta name="twitter:description"
+        content="Project page for the Fair MARL paper, Cooperation and Fairness in Multi-Agent Reinforcement Learning." />
+
+
+<!-- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css"> -->
+
+<!--     <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5H2C4DFSMD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5H2C4DFSMD');
+    </script> -->
+<!-- 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="js/app.js"></script> -->
+
+
+
+        
+        
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162662677-1"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+ 	 function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+
+  	gtag('config', 'UA-162662677-1');
+	</script>
+
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar">
+
+    <!-- Dark Mode Toggle Switch -->
+    <div class="dark-mode-toggle">
+        <label class="switch">
+            <input type="checkbox" id="darkModeSwitch">
+            <span class="slider round"></span>
+        </label>
+        <span>Dark Mode</span>
+    </div>
+
+<!--         < CV Fab Button > -->
+<!--         <a href="./assets/JasmineJerryA_Resume(2).pdf"><button class="btn cv-fab-btn">Click to view <b style="margin-left: 10px;">CV</b></button></a> -->
+<!--         </CV Fab Button > > -->
+        
+        <!-- NAVIGATION BAR -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12" style="padding: 0;">
+                    <nav class="navbar navbar-light nav-container custom-navbar" id="myNavBar">
+                        <div class="navbar-nav">
+				<a class="nav-item nav-link active"  href="index.html">Home</a>
+
+<!-- 				<a class="nav-item nav-link" href="#volunteer">Extra-curricular</a>
+<!-- 				<a class="nav-item nav-link" href="#volunteering">Extra-curricular</a> -->
+<!--                             <a class="nav-item nav-link" href="#photographs">Photos</a>
+                            <a class="nav-item nav-link" href="#contact">Contact</a> -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+<!--     <div class="container" id="main">
+        <div class="row"> -->
+	    	<!-- Volunteering CONTAINER -->
+        <div class="container carousel-container" id="volunteer">
+            <div class="row">
+<!--                 <div class="col-sm-12"> -->
+ 		<h1 style="color:White;">.</h1>
+            	<h2 class="col-md-12 text-center">
+                	Cooperation and Fairness in Multi-Agent Reinforcement Learning </br>
+		</h2>
+		<h4> Published in the <a href="https://dl.acm.org/doi/full/10.1145/3702012" target="_blank" rel="noopener noreferrer">ACM Journal on Autonomous Transportation Systems</a> </h4>
+		<br>
+		<br>
+                 <h4> Presented at <a href="https://sites.google.com/view/cocomarl-2024/home" target="_blank" rel="noopener noreferrer">Coordination and Cooperation in Multi-Agent Reinforcement Learning (CoCoMARL)</a>
+		 <br> Reinforcement Learning Conference 2024 Workshop
+		 </h4>
+                
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h5> <ul class="list-inline">
+                     <li>
+                        <a href="https://jaroan.github.io/jasminejerrya/" target="_blank" rel="noopener noreferrer">
+                            Jasmine Jerry Aloor
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="https://nsidn98.github.io" target="_blank" rel="noopener noreferrer">
+                            Siddharth Nayak
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="https://sydneyidolan.com/" target="_blank" rel="noopener noreferrer">
+                            Sydney Dolan
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="https://victor-qin.com/" target="_blank" rel="noopener noreferrer">
+                            Victor Qin
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="https://aeroastro.mit.edu/dinamo-group/" target="_blank" rel="noopener noreferrer">
+                            Hamsa Balakrishnan
+                        </a>
+                        </br>MIT
+                    </li></h5>
+                </ul>
+
+                <!-- *denotes equal contribution -->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <!-- <div class="col-md-5 col-md-offset-3 text-center"> -->
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://dl.acm.org/doi/full/10.1145/3702012" target="_blank" rel="noopener noreferrer">
+                            <image src="assets/FairMARL_Website/paper.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Jaroan/Fair-MARL" target="_blank" rel="noopener noreferrer">
+                            <image src="assets/FairMARL_Website/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/presentation/d/1KRdeAYlFlDNDheN9faZW4eZY-bqpljLP/edit?usp=sharing&ouid=115807287257204370024&rtpof=true&sd=true"target="_blank" rel="noopener noreferrer">
+                        <!-- <a href="https://www.dropbox.com/s/y45cujak4mvaefo/InforMARL%20%28Dec%29%20Slides.pptx?dl=0"> -->
+                            <image src="assets/FairMARL_Website/ppt.png" height="60px">
+                                <h4><strong>Slides</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://drive.google.com/file/d/1403QLkgqDvI-V0TgHp3uc_fENAcaI3cS/view" target="_blank" rel="noopener noreferrer">
+                            <image src="assets/FairMARL_Website/youtube.jpg" height="60px">
+                                <h4><strong>Video</strong></h4>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://drive.google.com/file/d/1NJUL0SUGplQfffrXN-QVzT8EJ7lwEDf_/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <image src="assets/FairMARL_Website/poster.png" height="60px">
+                                <h4><strong>Poster</strong></h4>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12 introduction-content">
+                <h3>
+                    Abstract
+                </h3>
+                    <p class="text-justify">
+                        Multi-agent systems are trained to maximize shared cost objectives, which typically reflect system-level efficiency. However, in the
+                        resource-constrained environments of mobility and transportation systems, efficiency may be achieved at the expense of fairness
+                        — certain agents may incur significantly greater costs or lower rewards compared to others. Tasks could be distributed inequitably,
+                        leading to some agents receiving an unfair advantage while others incur disproportionately high costs. It is, therefore, important to
+                        consider the tradeoffs between efficiency and fairness in such settings.
+                        We consider the problem of fair multi-agent navigation for a group of decentralized agents using multi-agent reinforcement
+                        learning (MARL). We consider the reciprocal of the coefficient of variation of the distances traveled by different agents as a measure
+                        of fairness and investigate whether agents can learn to be fair without significantly sacrificing efficiency (i.e., increasing the total
+                        distance traveled). We find that by training agents using min-max fair distance goal assignments along with a reward term that
+                        incentivizes fairness as they move towards their goals, the agents (1) learn a fair assignment of goals and (2) achieve almost perfect
+                        goal coverage in navigation scenarios using only local observations. For goal coverage scenarios, we find that, on average, the proposed
+                        model yields a 14% improvement in efficiency and a 5% improvement in fairness over a baseline model that is trained using random
+                        assignments. Furthermore, a 21% improvement in fairness can be achieved by the proposed model as compared to a model trained on
+                        optimally efficient assignments; this increase in fairness comes at the expense of only a 7% decrease in efficiency. Finally, we extend
+                        our method to environments in which agents must complete coverage tasks in prescribed formations and show that it is possible to do
+                        so without tailoring the models to specific formation shapes.
+
+                        <br>
+                    </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>
+                    Motivation
+                </h3>
+                <!-- <image src="img/fig_1.jpg" class="img-responsive" alt="overview"><br> -->
+                    <p class="text-justify">
+			<ul class= "arrow-list">
+				<li>Multi-agent vehicular systems, where large numbers of vehicles coordinate to execute complex missions, have the potential to transform the transportation and mobility domains. </li>
+				<li>Despite the differences in application domains, these operations tend to occur in resource-constrained environments where it is important to make efficient use of resources; however, the quest for efficiency alone in these situations can often mean that fairness is sacrificed. </li>
+				<li>In other words, some agents (vehicles or users) may receive significantly better or worse outcomes relative to others. </li>
+				<li>We require methods that can guide agents to achieve the desired behavior of efficiency and fairness.</li>
+			</ul>
+<!--                         
+		    	 </b></i> -->
+
+                        <br><br>
+
+                        <h4>
+                            Efficiency vs. Fairness
+                        </h4>
+                        <h5>MARL optimized for efficiency alone:</h5>
+
+                        <br>
+                        <br>
+
+                        <center>
+                            <figure>
+                                <image src="assets/FairMARL_Website/efficient3.png" class="center" alt="MARL optimized for efficiency alone" height="340"/>
+                                <figcaption><b><br>Figure 1:</b> Multi‐agent systems are trained to maximize shared cost objectives.
+				In resource‐constrained environments, efficiency may be achieved at the
+				expense of fairness — certain agents may incur significantly greater costs or
+				lower rewards compared to others in the system.
+				Tasks could be distributed inequitably, leading to some agents receiving an
+				unfair advantage while others starve for resources. </figcaption>
+                            </figure>
+                        </center>
+
+
+                        <br>
+                        <be>
+		    	<h5>MARL optimized for fairness and efficiency:</h5>
+                        <center>
+                            <figure>
+                                <image src="assets/FairMARL_Website/fair3.png" class="center" alt="MARL optimized for fairness and efficiency" height="340"/>
+                                <figcaption><b><br>Figure 2 </b> Can agents learn to complete tasks fairly without significantly sacrificing
+					efficiency (e.g., improving fairness without increasing total distance)? </figcaption>
+                            </figure>
+                        </center>
+
+                        <!-- <br>
+                        <br> -->
+
+                    </p>
+            </div>
+        </div>
+	<br>
+	<br>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>
+                    Method
+                </h3>
+                <p class="text-justify">
+                        Our environment comprises agent, obstacle, and goal entities. Agents navigate to goals so that each agent reaches a unique goal while avoiding collisions.
+                    <br>
+		<h4>Fairness Metric</h4>
+			We choose the distance traveled by agents to reach their goals as the resource
+			to be treated fairly. We want to minimize the standard deviation of the distance
+			traveled among all agents. With the distance traveled at each time step t, the
+			mean μt and standard deviation σt are computed. The fairness metric is:
+			<br>
+                            <image src="assets/FairMARL_Website/fairness_metric.png" class="center" alt="The fairness metric" height="100"/>
+
+		<h4>Goal assignment schemes</h4>
+			<center>
+			<div class="container-fluid">
+                            <div class="col-sm-4">
+                                <div class="card" style="width: 35rem;">
+                                    <img class="card-img-top" src="assets/FairMARL_Website/random_assignment_schemes.png" alt="Random assignment scheme" class="left" height="220">
+                                    <div class="card-block">
+                                        <h5 class="card-title">Random goal assignment</h5>
+                                        <p class="card-text">Here, agents are assigned to goals randomly.</p>
+<!--                                         <p><span class="badge badge-default">MAV</span> <span class="badge badge-default">Box Wing</span> <span class="badge badge-default">Aerodynamics</span></p>
+                                        <a href="https://arxiv.org/abs/2112.02872" class="btn btn-primary">Preprint</a><a href="https://youtu.be/03NjjuBGds0" class="btn btn-primary">Video</a>
+					<a href="https://osf.io/3r79q" class="btn btn-primary">Conference Paper</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Boxwing Project -->
+
+                            <!-- Homotopy project -->
+                            <div class="col-sm-4">
+                                <div class="card" style="width: 35rem;">
+                                    <img class="card-img-top" src="assets/FairMARL_Website/optimal_assignment_schemes.png" alt="optimal_assignment_schemes" height="220">
+                                    <div class="card-block">
+                                        <h5 class="card-title">Optimal distance cost assignment</h5>
+                                        <p class="card-text">Each agent i is matched to a goal j so that the total cost Cij for all agents is minimized, which here corresponds to minimizing the total distance.</p>
+<!--                                         <p><span class="badge badge-default">Trajectory control</span> <span class="badge badge-default">Homotopy</span> <span class="badge badge-default">Optimize</span></p>
+                                        <a href="https://github.com/Jaroan/StoneRangeMaximization" class="btn btn-primary">GitHub</a> -->
+                                    </div>
+                                </div>
+				    
+			     </div>
+                            <!-- NACDEC project -->
+                            <div class="col-sm-4">			  
+				 <div class="card" style="width: 35rem;">
+
+                                    <img class="card-img-top" src="assets/FairMARL_Website/fair_assignment_schemes.png" alt="fair_assignment_schemes" height="220">
+                                    <div class="card-block">
+                                        <h5 class="card-title">Min‐max fair assignment</h5>
+                                        <p class="card-text">Min‐max fairness is a popular concept that reduces the worst‐case cost in the assignment. 
+						We determine a min‐max fair assignment by optimizing the objective min z where z represents the maximum cost assigned to any agent</p>
+<!--                                         <p><span class="badge badge-default">Aircraft Design</span> <span class="badge badge-default">Conceptual Design</span></p> -->
+<!--                                         <a href="https://osf.io/3r79q/" class="btn btn-primary">View Github Repo</a> -->
+                                    </div>
+                                </div>
+                            </div>
+			</div>
+			</center>
+
+		<h4>Reward Structure</h4>
+			The assigned goal information is provided to the agent based on the value of the
+			distance‐based reward Rd(st, a(i) t ). When an agent reaches its goal, it receives
+			an additional goal‐reaching reward Rg(st, a(i) t). We penalize collisions with −C.
+			<br>
+                            <image src="assets/FairMARL_Website/rewards.png" class="center" alt="Reward structure" height="150"/>	    
+
+
+                    
+<!--                     <br>
+                    (i) <u><b>Environment</b></u>: The agents are depicted by green circles, 
+                    the goals are depicted by red rectangles, and the unknown 
+                    obstacles are depicted by gray circles. 
+                    <img src="https://latex.codecogs.com/svg.image?x^{(i)}_{\mathrm{agg}}"/> represents the aggregated information from the 
+                    neighborhood, which is the output of a graph neural network. A graph is created 
+                    by connecting entities within the sensing-radius of the agents. 
+                    <br>
+                    <br>
+                    (ii)  <u><b>Information Aggregation</b></u>: Each agent's observation 
+                    <img src="https://latex.codecogs.com/svg.image?o^{(i)}"/> is 
+                    concatenated with <img src="https://latex.codecogs.com/svg.image?x^{(i)}_{\mathrm{agg}}"/>. 
+                    The inter-agent edges are bidirectional, while the edges 
+                    between agents and non-agent entities are unidirectional. 
+                    <br>
+                    <br>
+                    (iii) <u><b>Graph Information Aggregation</b></u>: The aggregated vector 
+                    from all the agents is averaged to get <img src="https://latex.codecogs.com/svg.image?X_{\mathrm{agg}}"/>.
+                    <br>
+                    <br>
+                    (iv) <u><b>Actor-Critic</b></u>: The concatenated vector 
+                    <img src="https://latex.codecogs.com/svg.image?[o^{(i)}, x^{(i)}_{\mathrm{agg}}]"/> 
+                    is fed into the actor network to get the action, and 
+                    <img src="https://latex.codecogs.com/svg.image?X_{\mathrm{agg}}"/>
+                    is fed into the critic network to get the state-action values.
+                     -->
+                    <br>
+                    <br>
+                    <br>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3>
+                    Agent Training Framework
+                </h3>
+			<center>
+                        <figure>
+                            <image src="assets/FairMARL_Website/FAIRMARL_poster.png" class="center" alt="Agent training summary" height="450"/>
+                            <figcaption><b><br>Figure 3:</b> Overview of our method - <i>Fair MARL</i> </figcaption>
+                        </figure>
+                    	</center>
+                    <p class="text-justify">
+		 Overview of the training: In the navigation scenario, we track the path of the agents as an episode progresses.
+		Frame A: Each episode starts with entities initialized randomly. Agent 1’s observation vector and sensing radius are shown.
+		Frames B and C: At every time step, for each agent, the fairness metric Ft is computed along with each agent’s rewards. The
+		agents are assigned goals randomly or based on an optimal or fair distance cost.
+		Frame D: Once an agent reaches the assigned goal, it is given a goal reward Rg and is flagged ”done” for that episode.
+		    </p>
+	    </div>
+	</div>
+
+		<br>
+		<br>
+		<div class="row">
+	            <div class="col-md-12">
+	                <h3>
+	                    Evaluation Framework
+	                </h3>
+			<h6>
+                <style>
+                    .custom-list {
+                        list-style-type: square;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 0;
+                    }
+                    .custom-list li {
+                        text-align: center;
+                        max-width: 2600px;
+                        margin: 10px 0;
+                        padding: 0 20px;
+                    }
+                </style>
+                
+                <ul class="custom-list"> 
+                    <li>Each agent can go to any goal in the environment.</li> 
+                    <li>Agents rely on their local observations and the learned assignments.</li> 
+                    <li>No rewards are provided as agents do not rely on a centralized critic.</li> 
+                </ul>
+                <!-- <ul style="list-style-type: square; padding: 10; text-align: center;">
+                    <li style="text-align: center; margin: -10 -10px; ">
+                        Each agent can go to any goal in the environment.
+                    </li>
+                    <li style="display: inline-block; text-align: left; margin: 0 10px;">
+                        Agents rely on their local observations and the learned assignments.
+                    </li>
+                    <li style="display: inline-block; text-align: left; margin: 0 10px;">
+                        No rewards are provided as agents do not rely on a centralized critic.
+                    </li>
+                </ul> -->
+			</h6>
+			<h4>
+                            Example Experiment
+                        </h4>
+			<center>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-2">
+                                    <div style="float:left; margin-right:20px;">
+                                        <img src="assets/FairMARL_Website/rand_assign_no_fair_rew_traj_new.png" height="150" width="150" style="border: 1px solid #555" />
+                                        <p style="text-align:center;">(a) RandAssign,NoFairRew (RA)</p>
+                                    </div>
+                                    <div style="float:left; margin-right:20px;">
+                                        <img src="assets/FairMARL_Website/baseline_traj_new.png" height="150" width="150" style="border: 1px solid #555" />
+                                        <p style="text-align:center;">b) OptAssign,NoFairRew (OA)</p>
+                                    </div>
+                                    <div style="float:left; margin-right:20px;">
+                                        <img src="assets/FairMARL_Website/fair_assign_no_fair_rew_traj_new.png" height="150" width="150" style="border: 1px solid #555" />
+                                        <p style="text-align:center;">(c) FairAssign,NoFairRew (FA)</p>
+                                    </div>
+                                    <div style="float:left; margin-right:20px;">
+                                        <img src="assets/FairMARL_Website/fair_assign_fair_rew_traj_new.png" height="150" width="150" style="border: 1px solid #555" />
+                                        <p style="text-align:center;">(d) FairAssign,FairRew (FA+FR)</p>
+                                    </div>
+                                </div>
+                            </div>
+				<center>
+	                        <figure>
+	                            <image src="assets/FairMARL_Website/legend.png" class="center" alt="Agent legend" height="25"/>
+	                        </figure>
+	                    	</center>
+                            <figcaption><b><br>Figure 4</b>:  Visualization of behaviors of the four navigation models: We test with different assignment methods with and without a fairness reward.
+				The agents start from the upper half and navigate to goals located on the bottom left part</figcaption>
+                        </center>
+                        <h4>
+                            Example Experiment Results
+                        </h4>
+
+                        <!--create a list of metrics used-->
+                        <p>We calculate the following metrics to determine the performance of our method: </p>
+                        <style>
+                            .arrow-list {
+                                list-style-type: none;
+                                padding-left: 0;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                            .arrow-list li {
+                                position: relative;
+                                padding-left: 20px;
+                                margin: 10px 0;
+                                max-width: 3600px;
+                                text-align: center;
+                            }
+                            .arrow-list li::before {
+                                content: '➤';
+                                position: absolute;
+                                left: 0;
+                                color: #000; /* Change color as needed */
+                            }
+                        </style>
+                        <ul class="arrow-list">
+                            <li> Fairness, <i>&#120021;</i> (higher is better); which is the total fairness value obtained at the end of the episode.</li> <!-- mathcal F-->
+                            <li> Success rate as the percentage of agents able to get to unique goals and become 'done' denoted by  <i>S</i> (higher is better).</li>
+                            <li> Episode fraction, <i>T</i> (lower is better). The fraction of an episode time all agents take to reach their goal, <i>T</i> is set to 1 if any
+                                agent does not reach its goal.</li>
+                            <li> Distance, <i>D</i> (lower is better) The total distance traveled by the group of agents per episode.</li>
+                        <center>
+                        <p>Table 1: Evaluation metrics calculated for the four navigation scenarios shown in Fig. 4. We see that the model that is trained with fair goal assignments and fair rewards (FA+FR) has the best balance of fairness and efficiency (distance traveled).</p>
+                        <div class="col-md-12 col-md-offset-2">
+                        <div style="text-align: center;">
+                        <table border="1" cellpadding="5" cellspacing="0">
+                        <caption>
+                            <!-- Text color for table caption should be black-->
+                            
+                            <!-- <p style="color:black;">Table 1: Evaluation metrics calculated for the four navigation scenarios shown in Fig. 4. We see that the model that is trained with fair goal assignments and fair rewards (FA+FR) has the best balance of fairness and efficiency (distance traveled).</p> -->
+                        </caption>
+                        <thead>
+                            <tr>
+                            <th>| Model .</th>
+                            <th>| Fairness, <i>&#120021;</i> (&#8593; better) .</th>
+                            <th>| Success, <i>S</i>% (&#8593; better) .</th>
+                            <th>| Episode fraction, <i>T</i> (&#8595; better) .</th>
+                            <th>| Distance, <i>D</i> (&#8595; better) .</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td><strong>RA</strong></td>
+                            <td><strong>6.50</strong></td>
+                            <td>66.7</td>
+                            <td>1.00</td>
+                            <td>10.81</td>
+                            </tr>
+                            <tr>
+                            <td><strong>OA</strong></td>
+                            <td>3.45</td>
+                            <td>100.0</td>
+                            <td>0.68</td>
+                            <td><strong>9.36</strong></td>
+                            </tr>
+                            <tr>
+                            <td><strong>FA</strong></td>
+                            <td>4.81</td>
+                            <td>100.0</td>
+                            <td>0.64</td>
+                            <td>9.96</td>
+                            </tr>
+                            <tr>
+                            <td><strong>FA+FR</strong></td>
+                            <td>6.14</td>
+                            <td>100.0</td>
+                            <td><strong>0.62</strong></td>
+                            <td>9.82</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        </center>
+                        </div>
+                    </div>
+                       <div class="container-fluid mlai-container feature-highlight">
+                            <div class="col-md-12 ML g-blue">
+
+                                <h6>Key Takeaway: Agents learn fair behavior without a significant decrease in efficiency when trained with a fair goal assignment and a fairness reward.</h6>
+                            </div>
+                        </div>
+
+                        
+                        <!-- <center>
+                            <div class="row">
+                                <div class="column">
+                                    <img src="img/navigation.png" style="float: left; height: 150px; margin-right: 2%; margin-bottom: 0.5em; border: 1px solid #555">
+                                </div>
+                                <div class="column">
+                                    <img src="img/spread.png" style="float: left; height: 150px; margin-right: 2%; margin-bottom: 0.5em; border: 1px solid #555">
+                                </div>
+                                <div class="column">
+                                    <img src="img/formation.png" style="float: left; height: 150px; margin-right: 2%; margin-bottom: 0.5em; border: 1px solid #555">
+                                </div>
+                                <div class="column">
+                                    <img src="img/line.png" style="height: 150px; border: 1px solid #555">
+                                </div>
+                                <figcaption><b><br>Figure 4</b>: The <i>Target</i>, <i>Coverage</i>, <i>Formation</i> and <i>Line</i> environments. 
+                                </figcaption>
+                            </div>
+                        </center> -->
+                        <!-- <br> -->
+
+                        <h4>
+                            Comparison over 100 episodes
+                        </h4>
+                        We compare our method with a few different MARL baselines 
+                        in the <i>Target</i> environment. 
+                        <br>
+                        <center>
+                        <figure>
+                            <image src="assets/FairMARL_Website/results3.png" class="center" alt="3agent results" height="250"/>
+                            <figcaption><br>(a) With 3 agents.</figcaption>
+                        </figure>
+			<figure>
+                            <image src="assets/FairMARL_Website/results10.png" class="center" alt="10 agent results" height="250"/>
+                            <figcaption><br>(b) With 10 agents</figcaption>
+                        </figure>
+                    	</center>
+			<figcaption><be><b>Figure 5</b>: Tradeoff plots showing the difference in the median fairness (F) and the total distance traveled by all agents (D) over 100 test episodes for the model variants as compared to the (RA,nFR) model when trained on 3 agents.</figcaption>
+		    </div>
+		</div>
+                        
+		<br>
+		<br>
+		<div class="row">
+	            <div class="col-md-12" style="text-align: center;">
+                    
+	                <h3>
+	                    Creating Formations with Multiple Agents
+	                </h3>
+                        <br>
+                        <br>
+<!--                         The following metrics are compared:
+                        <ul>
+                            <li> Total reward obtained in an episode by all the agents (higher is better). </li>
+                            <li> Fraction of episode taken by the agents to reach the goal, <img src="https://latex.codecogs.com/svg.image?\textbf{T}"/> (lower is better).</li>
+                            <li> The total number of collisions the agents had in the episode, # col (lower is better).</li>
+                            <li> Percent of episodes in which all agents are able to get to their goals, <img src="https://latex.codecogs.com/svg.image?S\%"/> (higher is better).</li>
+                        </ul>
+
+                        The best-performing methods that use global information (RMAPPO) and local information (InforMARL) are highlighted. -->
+			
+                        <figure>
+                            <image src="assets/FairMARL_Website/formation_shapes.png" class="noPadding" alt="Formation shapes" height="250"/>
+                            <figcaption><b><br>Figure 6</b>: We extend our method to agents coordinating and forming various shapes. Various shapes are created using a set of ”expected positions” around one or two landmark positions. The agents use these expected positions as goals. </figcaption>
+                        </figure>
+
+                        <br>
+
+                        <h4>
+                            Comparison over 100 episodes
+                        </h4>
+
+                        <center>
+                            <center>
+                                <figure>
+                                    <image src="assets/FairMARL_Website/circle_plot_nogoal_paper_seed0_tradeoff_022world_503_rev2.png" class="center" alt="3agent results" height="200"/>
+                                    <figcaption><br>(a) With 3 agents.</figcaption>
+                                </figure>
+                                <figure>
+                                    <image src="assets/FairMARL_Website/circle_plot_nogoal_paper_seed0_tradeoff_022world_505_rev2.png" class="center" alt="5 agent results" height="200"/>
+                                    <figcaption><br>(b) With 5 agents</figcaption>
+                                </figure>
+                                <figure>
+                                    <image src="assets/FairMARL_Website/circle_plot_nogoal_paper_seed0_tradeoff_022world_5010_rev2.png" class="center" alt="10 agent results" height="200"/>
+                                    <figcaption><br>(c) With 10 agents</figcaption>
+                                </figure>
+                                <figcaption><be><b>Figure 7</b>: Circle Formation: The violin plots show the distribution of fairness (<i>&#120021;</i>)
+                                     and the total distance traveled  (<i>D</i>)  over 100 test episodes for three trained model variants: 
+                                     1) Optimal distance cost goal assignments (OA); 
+                                     2) Fair goal assignments (FA); and 
+                                     3) Fair goal assignments and a fairness reward (FA+FR).
+                                    A white circle and tick denote the medians; a plain tick represents the means, and the vertical black lines indicate the 90-10 percentile range.</figcaption>
+                                </center>
+                        </center>
+
+                        <h4>
+                            Performance in Congested Environments
+                        </h4>
+                        <center>
+                            <figure>
+                                <image src="assets/FairMARL_Website/CongestionFigure.png" class="center" alt="congestion envs" height="350"/>
+                                <figcaption><b><br>Figure 8</b>: Congestion in the environment: The figure on the left shows an environment with 3 agents 
+                                    along with 3 obstacles and 2 walls.
+                                    The figure on the right shows the environment with 7 agents and 3 obstacles. 
+                                    The environment is crowded with the increased number of agents, which decreases free space for navigating in straight lines.
+                                </figcaption>
+                            </figure>
+                        </center>
+                        <br>
+                        <br>
+                        <h5>
+                            Comparison over 100 randomly initialized congested environments
+                        </h5>
+                        <br
+                        <center>
+                            <center>
+                                <figure>
+                                    <image src="assets/FairMARL_Website/violin_plot4_firstgoaldone_Random_walltrain1_tradeoff_503_rev2.png" class="center" alt="3 agent results" height="200"/>
+                                    <figcaption><br>(a) With 3 agents.</figcaption>
+                                </figure>
+                                <figure>
+                                    <image src="assets/FairMARL_Website/violin_plot4_firstgoaldone_Random_walltrain1_tradeoff_505_rev2.png" class="center" alt="5 agent results" height="200"/>
+                                    <figcaption><br>(b) With 5 agents</figcaption>
+                                </figure>
+                                <figure>
+                                    <image src="assets/FairMARL_Website/violin_plot4_firstgoaldone_Random_walltrain1_tradeoff_5010_rev2.png" class="center" alt="10 agent results" height="200"/>
+                                    <figcaption><br>(c) With 10 agents</figcaption>
+                                </figure>
+                                <figcaption><be><b>Figure 9</b>: Congestion: The violin plots show the distribution of fairness (<i>&#120021;</i>), the total distance traveled  (<i>D</i>)
+                                    and success rates (<i>S%</i>) over 100 test episodes for three trained model variants: 
+                                    1) Random goal assignments (RA);
+                                    2) Optimal distance cost goal assignments (OA); 
+                                    3) Fair goal assignments (FA); and 
+                                    4) Fair goal assignments and a fairness reward (FA+FR).
+                                    A white circle and tick denote the medians; a plain tick represents the means, and the vertical black lines indicate the 90-10 percentile range.
+                                    We also show the tradeoffs between fairness and efficiency exhibited by the different models in the rightmost subplot.</figcaption>
+                                </center>
+                        </center>
+                        
+
+                    </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Conclusions
+                </h3>
+                    <p class="text-justify">
+                        <ul>
+                            <li> 
+                                Our proposed model (FA+FR) incorporated training agents using min-max fair distance goal assignments along with a
+                                reward term to incentivize fairness during their movement. Our results show agents can learn fair assignments without
+                                needing to significantly sacrifice efficiency. 
+                            </li>
+
+                            <li> 
+                                Additionally, our model achieved almost perfect goal coverage even when
+                                tested on a larger number of agents than training, showing the scalability of our approach. 
+                            </li>
+
+                            <li> 
+                                We showed that our method is able to generalize to different formation shapes and achieve complete coverage without retraining the models.
+                            </li>
+                        </ul>
+                        <br>
+                    </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Future Work
+                </h3>
+                    <p class="text-justify">
+                        <ul>
+                            <li> 
+                                Include other measures of fairness to evalaute in diverse scenarios.
+                            </li>
+
+                            <li> 
+                                The development of heuristics for large-scale, highly-congested environments, 
+                            </li>
+
+                            <li> 
+                                Extending the proposed approach to the fair and efficient creation of dynamic formations using multiple vehicles. 
+                            </li>
+                        </ul>
+                        <!-- <br> -->
+                    </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <!-- <h3>
+                    Video Presentation (Coming Soon)
+                </h3> -->
+
+                <!-- <br>
+                <p align="center">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div> -->
+
+                <!-- </p> -->
+
+                <!-- <br> Presented at the Conference <a href="https://conference-website/">Main track</a>. -->
+                <br>
+                <table align=center width=800px>
+                    <br>
+                    <tr>
+                        <center>
+                            <span style="font-size:22px">&nbsp;<a
+                                    href='https://docs.google.com/presentation/d/1KRdeAYlFlDNDheN9faZW4eZY-bqpljLP/edit?usp=sharing&ouid=115807287257204370024&rtpof=true&sd=true' target="_blank" rel="noopener noreferrer">[Slides]</a>
+                </table>
+
+
+                <object width="800" height="500" type="application/pdf" data="assets/FairMARL_Website/SafeAviationNASA_ULI_MonthlyResearchSeminar_pptx.pdf?#zoom=60&scrollbar=0&toolbar=0&navpanes=0" >
+                    <p>Click on the link if PDF is not rendered.</p>
+                </object>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h2>
+                    Citation
+                </h2>
+                <br />If you find our work or code useful in your research, please consider citing the following paper:
+                <br />
+                <br />
+                <style>
+                    .custom-textarea {
+                        background-color: #e0e0e08d; /* Light gray background */
+                        color: #333; /* Dark gray text */
+                        border: 2px solid #4a4a4a; /* Darker border */
+                        border-radius: 8px; /* Rounded corners */
+                        padding: 15px;
+                        /* font-family: 'Courier New', monospace; Monospace font for code-like appearance */
+                        line-height: 1.5;
+                        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow */
+                    }
+                </style>
+                <div class="form-group col-md-12 col-md-offset-0">
+                    <textarea id="bibtex" class="form-control custom-textarea" rows="18" readonly>
+                        @article{aloor2024cooperation,
+                            author = {Aloor, Jasmine Jerry and Nayak, Siddharth Nagar and Dolan, Sydney and Balakrishnan, Hamsa},
+                            title = {Cooperation and Fairness in Multi-Agent Reinforcement Learning},
+                            year = {2024},
+                            issue_date = {June 2025},
+                            publisher = {Association for Computing Machinery},
+                            address = {New York, NY, USA},
+                            volume = {2},
+                            number = {2},
+                            url = {https://doi.org/10.1145/3702012},
+                            doi = {10.1145/3702012},
+                            journal = {ACM J. Auton. Transport. Syst.},
+                            month = dec,
+                            articleno = {8},
+                            numpages = {25},
+                            }             
+                    </textarea>
+                </div>
+
+                We have extended this approach to work with more congested environments and different formation shapes.
+                
+                <!-- how to reduce font size
+                <style>
+                    .custom-textarea {
+                        background-color: #e0e0e08d; /* Light gray background */
+                        color: #333; /* Dark gray text */
+                        border: 2px solid #4a4a4a; /* Darker border */
+                        border-radius: 8px; /* Rounded corners */
+                        padding: 15px;
+                        /* font-family: 'Courier New', monospace; Monospace font for code-like appearance */
+                        line-height: 1.5;
+                        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow */
+                    }
+                </style>
+                <div class="form-group col-md-12 col-md-offset-0">
+                    <textarea id="bibtex" class="form-control custom-textarea" rows="13" readonly>
+
+                @article{nayak22informarl,
+                    doi = {10.48550/ARXIV.2211.02127},
+                    url = {https://arxiv.org/abs/2211.02127},
+                    author = {Nayak, Siddharth and Choi, Kenneth and Ding, Wenqi and Dolan, Sydney and Gopalakrishnan, Karthik and Balakrishnan, Hamsa},
+                    keywords = {Multiagent Systems (cs.MA), Artificial Intelligence (cs.AI), Robotics (cs.RO), FOS: Computer and information sciences, FOS: Computer and information sciences},
+                    title = {Scalable Multi-Agent Reinforcement Learning through Intelligent Information Aggregation},
+                    publisher = {arXiv},
+                    year = {2022},
+                    copyright = {Creative Commons Attribution 4.0 International}
+                    }                        
+                    </textarea>
+                </div>
+
+                <br />
+                <div class="form-group col-md-12 col-md-offset-0">
+                    <textarea id="bibtex" class="form-control custom-textarea" rows="16" readonly>
+                @InProceedings{pmlr-v211-dolan23a,
+                    title = 	 {Satellite Navigation  and Coordination with Limited Information Sharing},
+                    author =       {Dolan, Sydney and Nayak, Siddharth and Balakrishnan, Hamsa},
+                    booktitle = 	 {Proceedings of The 5th Annual Learning for Dynamics and Control Conference},
+                    pages = 	 {1058--1071},
+                    year = 	 {2023},
+                    editor = 	 {Matni, Nikolai and Morari, Manfred and Pappas, George J.},
+                    volume = 	 {211},
+                    series = 	 {Proceedings of Machine Learning Research},
+                    month = 	 {15--16 Jun},
+                    publisher =    {PMLR},
+                    pdf = 	 {https://proceedings.mlr.press/v211/dolan23a/dolan23a.pdf},
+                    url = 	 {https://proceedings.mlr.press/v211/dolan23a.html},
+                    }
+                    </textarea>
+                </div> -->
+                <br />
+                <br />
+                <!-- <div class="form-group col-md-12 col-md-offset-0">
+                    <textarea id="bibtex" class="form-control" rows="6" readonly>
+@mastersthesis{Nayak2022,
+    author  = "Siddharth Nagar Nayak",
+    title   = "Learning-based Scheduling",
+    school  = "MIT",
+    year    = "2022"
+    }
+                    </textarea>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Related Links
+                </h3>
+                <h6> Other related papers and works</h6>
+                <br>
+                <p class="text-justify">
+                    <ul>
+                        <li>
+                            <a href="https://nsidn98.github.io/InforMARL/" target="_blank" rel="noopener noreferrer">InforMARL</a>:
+                            Scalable Multi-Agent Reinforcement Learning through Intelligent Information Aggregation.
+                            <br />
+                        </li>
+                        <li>
+                            <a href="https://arxiv.org/abs/2211.03658" target="_blank" rel="noopener noreferrer">Application </a> 
+                            of InforMARL for space traffic management with 
+                            minimum information sharing.
+                            <br />
+                        </li>
+                        
+                        <!-- <li>
+                            Reinforcement learning based methods for scheduling by <a href="https://dspace.mit.edu/handle/1721.1/145097">Siddharth Nayak
+                                (2022)</a>.<br />
+                        </li>
+
+                        <li>
+                            The buffer formulation was introduced by 
+                            <a href="https://dspace.mit.edu/handle/1721.1/139538">Christopher Chin.
+                            (2021)</a>, for the robust crew-scheduling problem.<br />
+                        </li>
+
+                        <li>
+                            Integer programming formulation for different 
+                            objective functions was introduced by <a href="https://hdl.handle.net/1721.1/139080">Matthew Koch 
+                                (2021)</a>.<br />
+                        </li>
+
+                        <li>
+                            <a href="https://vimeo.com/476994227/cd722a770a"> Talk</a> by Christopher Chin on AI-assisted Optimization 
+                            of Schedules.<br />
+                        </li> -->
+                        <br />
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgments
+                </h3>
+                <p class="text-justify">
+                    <br />The authors would like to thank the 
+                    <a href="https://supercloud.mit.edu/" target="_blank" rel="noopener noreferrer">MIT SuperCloud</a> 
+                    and the Lincoln Laboratory Supercomputing Center for providing 
+                    high-performance computing resources that have contributed to 
+                    the research results reported within this paper. 
+                    This work was supported in part by NASA under grant #80NSSC23M0220 and the University Leadership Initiative (grants #80NSSC21M0071 and #80NSSC20M0163),
+                    but this article solely reflects the opinions and conclusions of its authors and not any NASA entity. J.J. Aloor was also supported in part by a Mathworks Fellowship.
+                    <br />
+                    <br /> This website template was edited heavily following the base from <a href="http://mgharbi.com/" target="_blank" rel="noopener noreferrer">Michaël Gharbi</a> and
+                    <a href="https://www.matthewtancik.com" target="_blank" rel="noopener noreferrer">Matthew Tannick</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleSwitch = document.getElementById('darkModeSwitch');
+        toggleSwitch.addEventListener('change', function() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.navbar').classList.toggle('dark-mode');
+            document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode'));
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.toggle('dark-mode'));
+            document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.toggle('dark-mode'));
+            document.querySelector('.feature-container').classList.toggle('dark-mode');
+            document.querySelector('.pub-container').classList.toggle('dark-mode');
+            document.querySelector('.custom-jumbotron').classList.toggle('dark-mode');
+            document.querySelector('.introduction-container').classList.toggle('dark-mode');
+            document.querySelector('.skills-container').classList.toggle('dark-mode');
+            document.querySelector('.contact-container').classList.toggle('dark-mode');
+            document.querySelector('.footer-container').classList.toggle('dark-mode');
+        });
+    </script>
+
+</body>
+
+</html>
+
