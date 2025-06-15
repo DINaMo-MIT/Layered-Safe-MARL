@@ -127,13 +127,13 @@
             <div class="col-md-4 col-md-offset-4 text-center">
                 <ul class="nav nav-pills nav-justified">
                     <li>
-                        <a href="https://arxiv.org/abs/2211.02127">
+                        <a href="https://arxiv.org/abs/2505.02293">
                             <image src="img/paper.png" height="60px">
                                 <h4><strong>Paper</strong></h4>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/jaroan/Layered-Safe-MARL">
+                        <a href="https://github.com/DINaMo-MIT/Layered-Safe-MARL">
                             <image src="img/github.png" height="60px">
                                 <h4><strong>Code</strong></h4>
                         </a>
@@ -146,7 +146,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.youtube.com/watch?v=ooj9E-endGc">
+                        <a href="https://www.youtube.com/watch?v=QSNDFl-6vf8">
                             <image src="img/yt.png" height="60px">
                                 <h4><strong>Video</strong></h4>
                         </a>
@@ -202,84 +202,20 @@
                 </h3>
                 <!-- <image src="img/fig_1.jpg" class="img-responsive" alt="overview"><br> -->
                     <p class="text-justify">
-                        MARL-based techniques have achieved significant successes 
-                        in recent times, eg., DeepMind's AlphaStar surpassing 
-                        professional level players in <cite><a href="https://www.nature.com/articles/s41586-019-1724-z">StarCraft II</a></cite>, 
-                        OpenAI Five defeating the world-champion in <cite><a href="https://arxiv.org/abs/1912.06680">Dota II</a></cite>, etc. 
-                        The performance of many of these MARL algorithms depends 
-                        on the amount of information included in the state given 
-                        as input to the neural networks <cite><a href="https://openreview.net/forum?id=YVXaxB6L2Pl">[1]</a></cite>.
-                        In many practical multi-agent scenarios, each agent aims 
-                        to share as little information as possible to accomplish 
-                        the task at hand. This structure naturally arises in many 
-                        multi-agent navigation settings, where agents may have a 
-                        desired end goal but do not want to share their information 
-                        due to communication constraints or proprietary concerns 
-                        <cite><a href="https://ieeexplore.ieee.org/document/7208459">[2], </a></cite>
-                        <cite><a href="https://www.fcc.gov/ecfs/search/search-filings/filing/1040578949828">[3]</a></cite>. 
-                        These scenarios result in a decentralized structure, 
-                        as agents only have locally available information about 
-                        the overall system's state. In this paper, we focus on 
-                        the question: <i><b>"Can we train scalable multi-agent 
-                        reinforcement learning policies that use limited local 
-                        information about the environment to perform collision-free 
-                        navigation effectively?" </b></i>
+                       
+
+                    Collision-free operation is a fundamental requirement for multi-robot coordination tasks, such as formation control [1], multi-robot payload transport [2], and autonomous navigation [3]. When only two agents interact, there is a single collision-avoidance constraint, which can be easily managed using a safety filter. 
+                    However, with multiple nearby agents, the resolution of a constraint between two agents can conflict with a constraint involving a third agent.
+                    These conflicts may result in suboptimal task performance, such as creating a severe gridlock that prevents agents from taking actions to achieve their tasks. More crucially, the inability to simultaneously satisfy all constraints can result in an agent taking an action that makes collision inevitable.
+                    In particular, this issue poses a significant safety risk in high-density scenarios like air taxi operations for Advanced Air Mobility (AAM) [4].
+
+                    Prior works have addressed safe multi-robot coordination problems by using model-based control methods like control barrier functions (CBFs) [5] and reachability analysis [6]. Although CBFs and reachability provide a framework for safety assurance, they generally offer rigorous guarantees only when a single safety constraint is considered. The fundamental challenge in extending these methods to the multi-agent case is that the intersection of the safe sets corresponding to individual constraints (each derived from a pair of agents) does not necessarily represent the true safe set when all constraints are considered together (see Figure 2 for an example). In the Hamilton-Jacobi (HJ) reachability literature, the gap between these two regions is referred to as the “leaky corner” [7]. Agents that enter a leaky corner can no longer satisfy all safety constraints simultaneously and are inevitably forced to violate at least one. Unfortunately, identifying leaky corners without recomputing the reachability analysis from scratch while incorporating all constraints remains an open problem [8, 9]. Performing reachability analysis or designing CBFs for all possible combinatorial interaction scenarios is computationally intractable. In summary, the fundamental challenge in achieving scalability with such control-theoretic methods in multi-agent settings lies in handling conflicting constraints.
+
+                    In this work, we combine the control barrier-value function (CBVF) [10], which is a CBF design method based on Hamilton-Jacobi reachability, with multi-agent reinforcement learning (MARL) into a layered safety architecture. This integration is driven by the essential role MARL can play in learning to strategically optimize task performance in multi-agent scenarios while proactively navigating potential conflicting constraints, which helps achieve safer and more effective behaviors. As a result, our approach enhances both safety and performance to a level that neither safe control methods nor MARL alone could achieve.
 
                         <br><br>
 
-                        <h4>
-                            A Motivating Experiment
-                        </h4>
-                        The amount of information available to each agent determines 
-                        whether or not the agent can learn a meaningful policy.
-                        Although having more information is generally correlated 
-                        to better performance, it does not necessarily scale well 
-                        with the number of agents. Prior works like MAPPO <cite><a href="https://openreview.net/forum?id=YVXaxB6L2Pl">[1] </a></cite>, MADDPG
-                        <cite><a href="https://arxiv.org/abs/1706.02275">[4] </a></cite>
-                        have typically used a na&iumlve concatenation of the states 
-                        of all agents or entities in the environment fed into a 
-                        neural network. Such an approach scales poorly 
-                        (the network input size is determined by the number of agents) 
-                        and does not transfer well to scenarios with a different 
-                        number of agents than the training environment. We illustrate 
-                        the dependence of the learned policies on the amount of 
-                        information available to agents by defining three information modes: 
-                          <ul>
-                            <li>
-                                <b>Local</b>: In the local information mode, 
-                                <img src="https://latex.codecogs.com/svg.image?o^{(i)}_{\mathrm{loc}}&space;=&space;[p^{(i)},&space;v^{(i)},&space;p^{(i)}_{\mathrm{goal}}]"/>
-                                where <img src="https://latex.codecogs.com/svg.image?p^{(i)}"/> 
-                                and <img src="https://latex.codecogs.com/svg.image?v^{(i)}"/> 
-                                are the position and velocity of agent 
-                                <img src="https://latex.codecogs.com/svg.image?{i}"/> 
-                                in a global frame, and <img src="https://latex.codecogs.com/svg.image?p^{(i)}_{\mathrm{goal}}"/> 
-                                is the position of the goal relative to the agent's position.
-                            </li>
-                            <li>
-                                <b>Global</b>: Here, 
-                                <img src="https://latex.codecogs.com/svg.image?o_{\mathrm{glob}}^{(i)}&space;=&space;[p^{(i)},&space;v^{(i)},&space;p^{(i)}_{\mathrm{goal}},&space;p^{(i)}_{\mathrm{other}}]" />
-                                where <img src="https://latex.codecogs.com/svg.image?p^{(i)}_{\mathrm{other}}"/> 
-                                comprises of the relative positions of all 
-                                the other entities in the environment. The 
-                                scenarios defined in the MAPE 
-                                (and consequently, other approaches that use MAPE) 
-                                use this type of information mode unless explicitly stated otherwise.
-                            </li>
-                            <li>
-                                <b>Neighbourhood</b>: In this information mode, 
-                                agent <img src="https://latex.codecogs.com/svg.image?{i}"/> 
-                                observes <img src="https://latex.codecogs.com/svg.image?o_{\mathrm{nbd}}^{(i)}&space;=&space;[p^{(i)},&space;v^{(i)},&space;p^{(i)}_{\mathrm{goal}},&space;p^{(i)}_{\mathrm{other}}]"/>
-                                where <img src="https://latex.codecogs.com/svg.image?p^{(i)}_{other}"/> 
-                                comprises of the relative positions of all other 
-                                entities which are within a distance <i>nbd-dist</i> 
-                                of the agent. The maximum number of entities 
-                                within the neighborhood is denoted <i>max-nbd-entities</i>, 
-                                and so the dimension of the observation vector is fixed. 
-                                If there are fewer than <i>max-nbd-entities</i> 
-                                within a distance <i>nbd-dist</i> of the agent, 
-                                we pad this vector with zeros.
-                            </li>
-                          </ul>
+                        
                         <!-- where we maximize the number of pilots getting assigned 
                         to slots in flights. Here 𝐼 is the set of pilots, 𝑆 is 
                         the set of slots in flights. -->
