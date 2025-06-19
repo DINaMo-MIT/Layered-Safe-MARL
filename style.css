@@ -6,6 +6,7 @@ body {
 }
 
 header {
+  position: relative;
   background: #0a2540;
   color: #fff;
   padding-bottom: 2rem;
@@ -139,15 +140,22 @@ body.dark-mode .media-img {
 
 #darkModeToggle {
   position: absolute;
-  top: 1.5rem;
+  top: 1.2rem;
   right: 1.5rem;
-  background: none;
+  z-index: 10;
+  background: rgba(255,255,255,0.15);
   border: none;
   font-size: 1.7rem;
   cursor: pointer;
   color: #ffd700;
-  transition: color 0.2s;
+  border-radius: 50%;
+  padding: 0.4em 0.6em;
+  transition: background 0.2s, color 0.2s;
+}
+#darkModeToggle:hover {
+  background: rgba(30,144,255,0.2);
 }
 body.dark-mode #darkModeToggle {
   color: #fff;
+  background: rgba(30,144,255,0.15);
 }
