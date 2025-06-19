@@ -12,12 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  toggle.addEventListener('click', () => {
-    const isDark = !body.classList.contains('dark-mode');
-    setDarkMode(isDark);
-    localStorage.setItem('darkMode', isDark ? '1' : '0');
-  });
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const isDark = !body.classList.contains('dark-mode');
+      setDarkMode(isDark);
+      localStorage.setItem('darkMode', isDark ? '1' : '0');
+    });
 
-  const darkPref = localStorage.getItem('darkMode');
-  setDarkMode(darkPref === '1');
+    const darkPref = localStorage.getItem('darkMode');
+    setDarkMode(darkPref === '1');
+  }
 });
