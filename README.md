@@ -1,5 +1,18 @@
-# Safe-MARL
-Multi agent navigation with safety
+# Layered-Safe-MARL
+Multi-agent reinforcement learning for navigation with safety
+
+Project webpage is [here](https://dinamo-mit.github.io/Layered-Safe-MARL/).
+
+Paper:
+```
+@inproceedings{choi2025resolving,
+  title={Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety},
+  author={Choi, Jason J and Aloor, Jasmine Jerry and Li, Jingqi and Mendoza, Maria G and Balakrishnan, Hamsa and Tomlin, Claire J},
+  booktitle={Proceedings of Robotics: Science and Systems},
+  year={2025}
+}
+```
+Our code is built on [InforMARL source code](https://github.com/nsidn98/InforMARL).
 
 ## Installation
 
@@ -64,29 +77,22 @@ Some inforMARL code baselines:
     pip install --no-index torch-sparse -f https://data.pyg.org/whl/torch-${TORCH}+${CUDA}.html --user
     pip install torch-geometric --user
     ```
+## Safety Value Functions
+Download the safety value functions from [this directory](https://drive.google.com/drive/folders/1ba12lWbN69u0EOm4TUfz67VfRO4vS9dw?usp=sharing), and add them under `data` in the root directory.
 
+## Scripts
 
+Models are saved in `trained_models`.
 
-## Experiments to try out:
-* Minor changes required:
-    * Train for more episodes
-    * Give higher penalties for collisions - Tested: Doesn't improve; rather makes it worse than earlier
-    * Check impact of shared obervations - Tested (partially); Doesn't improve; Probably train for more steps and with slightly bigger networks 
-    * Change network architecture size (hidden layers)
-    * Make this work with more agents and obstacles
-* Major changes required (need to write extra code):
-    * Graph neural networks for aggregating local information
-    * Modify MAPPO code for our case
-    * Add communication channel
+Training: `train.sh`, or write custom python command using `script/train_mpe.py`.
+- To follow the training procedure of our paper, you have to run the training script twice, one for the warmstart policy without safety filter used in training, and the other for the final policy.
+- For warmstart, set `use_safety_filter` False. Make sure all the flags are set to False in `multiagent/config.py` `RewardBinaryConfig`.
+- For the second phase training, 1) set `use_safety_filter` to True, and 2) add `--model_dir="WARMSTART_MODEL_NAME"` to the python command argument where `WARMSTART_MODEL_NAME` is the model trained in the first phase. To use our method, set `POTENTIAL_CONFLICT` to True in `multiagent/config.py` `RewardBinaryConfig`.
 
-## Experiment: Optimal Minibatch:
-* In safe_aam.sh:
-    * num_training_threads = 4
-    * n_rollout_threads = 2
-    * num_mini_batch = 1
-    * episode_lengths=(25n), we vary n
-    * num_env_steps = episode_lengths * n_rollout_threads
-    * Then mini_batch_size = n * n_rollout_threads/2 * 15/num_mini_batch
-* Run with different values of n and record Training steps per second for each mini_batch_size
-* Results: https://www.desmos.com/calculator/b97lzbau8q
-    * Optimal mini_batch_size ~= 250
+Evaluation / Simulation: For double integrator (crazyflie) dynamics, use `eval_double_integrator.sh`. For airtaxi dynamics, use `eval_airtaxi.sh`. Or write custom python command using `script/eval_mpe.py`.
+
+## Quick navigation
+
+- Our main scenario for training, including the reward an the curriculum learning is defined in `multiagent/custom_scenario/navigation_graph_safe.py`. Other custom scenarios are defined in `multiagent/custom_scenario/`.
+- Our dynamics and world simulation are defined in `multiagent/core.py`.
+- Our safety filter is implemented in `multiagent/safety_filter.py`.
