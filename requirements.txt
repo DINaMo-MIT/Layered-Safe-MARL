@@ -1,0 +1,29 @@
+casadi==3.6.5
+cvxpy==1.4.1
+flax==0.8.2
+gym==0.26.2
+hj-reachability==0.5.0
+# hj-reachability-utils==0.1.0
+imageio==2.34.0
+jax==0.4.25
+jaxlib==0.4.25
+numpy==1.26.4
+optax==0.2.1
+pip==23.1.2
+pyglet==1.5.27
+pyomo==6.6.1
+PyYAML==6.0
+scipy==1.11.0
+tensorboard==2.17.1
+tensorboard-data-server==0.7.2
+tensorboardX==2.6.1
+tensorflow-probability==0.24.0
+tensorstore==0.1.53
+torch==2.2.1
+torch-scatter==2.1.2
+torch-sparse==0.6.18
+torch-geometric==2.5.1
+# torchaudio==2.0.2
+# torchvision==0.15.2
+tqdm==4.66.2
+wandb==0.15.4
