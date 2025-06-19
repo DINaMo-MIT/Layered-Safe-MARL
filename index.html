@@ -7,7 +7,7 @@
 
     <title>Layered-Safe-MARL</title>
 
-    <meta name="description" content="Layered-Safe-MARL">
+    <meta name="description" content="Project page for Layered-Safe-MARL: RSS 2025 paper Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety. Authors: Jason J. Choi, Jasmine Jerry Aloor, Jingqi Li, Maria G. Mendoza, Hamsa Balakrishnan, Claire Tomlin.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--FACEBOOK-->
@@ -153,7 +153,7 @@
                     </li>
                     
                     <li>
-                        <a href="http://nsidn98.github.io/files/Publications_assets/InforMARL/poster/ICML_InforMARL_Poster.pdf">
+                        <a href="img/LayeredSafeMARL_Poster_5_30_final.pdf">
                             <image src="img/poster.png" height="60px">
                                 <h4><strong>Poster</strong></h4>
                         </a>
@@ -194,33 +194,123 @@
                     </p>
             </div>
         </div>
-
-        <div class="row">
+        <div class="row" style="margin-top: 40px;">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Motivation
-                </h3>
-                <!-- <image src="img/fig_1.jpg" class="img-responsive" alt="overview"><br> -->
-                    <p class="text-justify">
-                       
+                <h3>Motivation</h3>
 
-                    Collision-free operation is a fundamental requirement for multi-robot coordination tasks, such as formation control [1], multi-robot payload transport [2], and autonomous navigation [3]. When only two agents interact, there is a single collision-avoidance constraint, which can be easily managed using a safety filter. 
-                    However, with multiple nearby agents, the resolution of a constraint between two agents can conflict with a constraint involving a third agent.
-                    These conflicts may result in suboptimal task performance, such as creating a severe gridlock that prevents agents from taking actions to achieve their tasks. More crucially, the inability to simultaneously satisfy all constraints can result in an agent taking an action that makes collision inevitable.
-                    In particular, this issue poses a significant safety risk in high-density scenarios like air taxi operations for Advanced Air Mobility (AAM) [4].
+                <p class="text-justify">
+                    Coordinating multiple autonomous agents in a shared space is essential for a variety of robotics applications, yet <strong>safety and efficiency</strong> remain fundamentally at odds in dense multi-agent settings.
+                </p>
 
-                    Prior works have addressed safe multi-robot coordination problems by using model-based control methods like control barrier functions (CBFs) [5] and reachability analysis [6]. Although CBFs and reachability provide a framework for safety assurance, they generally offer rigorous guarantees only when a single safety constraint is considered. The fundamental challenge in extending these methods to the multi-agent case is that the intersection of the safe sets corresponding to individual constraints (each derived from a pair of agents) does not necessarily represent the true safe set when all constraints are considered together (see Figure 2 for an example). In the Hamilton-Jacobi (HJ) reachability literature, the gap between these two regions is referred to as the “leaky corner” [7]. Agents that enter a leaky corner can no longer satisfy all safety constraints simultaneously and are inevitably forced to violate at least one. Unfortunately, identifying leaky corners without recomputing the reachability analysis from scratch while incorporating all constraints remains an open problem [8, 9]. Performing reachability analysis or designing CBFs for all possible combinatorial interaction scenarios is computationally intractable. In summary, the fundamental challenge in achieving scalability with such control-theoretic methods in multi-agent settings lies in handling conflicting constraints.
+                <ul style="font-size: 14px;">
+                    <li><strong>Collision-free operation</strong> is critical in multi-robot tasks such as:
+                        <ul>
+                            <li>Formation control [1]</li>
+                            <li>Multi-robot payload transport [2]</li>
+                            <li>Autonomous navigation [3]</li>
+                        </ul>
+                    </li>
 
-                    In this work, we combine the control barrier-value function (CBVF) [10], which is a CBF design method based on Hamilton-Jacobi reachability, with multi-agent reinforcement learning (MARL) into a layered safety architecture. This integration is driven by the essential role MARL can play in learning to strategically optimize task performance in multi-agent scenarios while proactively navigating potential conflicting constraints, which helps achieve safer and more effective behaviors. As a result, our approach enhances both safety and performance to a level that neither safe control methods nor MARL alone could achieve.
+                    <li><strong>Pairwise safety constraints</strong> (e.g., between two agents) are tractable, but:
+                        <ul>
+                            <li>When multiple agents interact simultaneously, their safety constraints may <em>conflict</em>.</li>
+                            <li>Resolving one constraint may violate another, especially in close proximity.</li>
+                        </ul>
+                    </li>
 
+                    <li><strong>Safe control methods</strong> like <em>reachability analysis</em> and <em>control barrier functions</em>:
+                        <ul>
+                            <li>Offer formal guarantees for small-scale interactions.</li>
+                            <li>But do not scale well to dense multi-agent systems due to computation limits.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Multi-Agent Reinforcement Learning (MARL)</strong> enables:
+                        <ul>
+                            <li>Learning emergent behaviors in complex environments.</li>
+                            <li>Optimizing task performance under uncertainty and high dimensionality.</li>
+                            <li>But lacks formal safety guarantees.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p class="text-justify" style="font-size: 16px;">
+                    <strong>Our Solution:</strong> We propose a <strong>Layered Safety Architecture</strong> that unifies:
+                    <ul>
+                        <li>The theoretical rigor of <strong>CBVFs</strong> (Control Barrier-Value Functions), providing <em>certified pairwise safety</em>.</li>
+                        <li>The scalability and adaptability of <strong>MARL</strong>, helping to avoid unsafe multi-agent interactions in the first place.</li>
+                    </ul>
+                    This layered combination enables safe, scalable, and intelligent decision-making in multi-robot systems — achieving safety levels that neither safe control nor learning alone can offer.
+                </p>
+            </div>
+        </div>
                         <br><br>
 
                         
-                        <!-- where we maximize the number of pilots getting assigned 
-                        to slots in flights. Here 𝐼 is the set of pilots, 𝑆 is 
-                        the set of slots in flights. -->
-                        <br>
-                        <br>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>Control Barrier-Value Functions (CBVF)</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-1 text-center">
+                <img src="img/CBVF.png" class="img-responsive center-block" style="max-height: 400px;" alt="CBVF Diagram">
+                <p style="font-size: 13px; color: #777; margin-top: 10px;"><em>Illustration of CBVF: Combining reachability analysis and control barrier functions for safe two-agent interaction.</em></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-1">
+                <ul style="font-size: 14px; margin-top: 20px;">
+                    <li>
+                        In this work, we use a model-based safety certificate called the <strong>Control Barrier-Value Function (CBVF)</strong>,
+                        which combines the benefits of <em>Hamilton-Jacobi Reachability</em> and <em>Control Barrier Functions</em>.
+                    </li>
+                    <li>
+                        CBVFs provide a <strong>maximal safe set</strong> within the constraint set from its reachability foundation,
+                        while offering a <strong>smooth safety filtering mechanism</strong> similar to Control Barrier Functions.
+                    </li>
+                    <li>
+                        They offer <strong>hard safety guarantees</strong> when computable for a given system — we use this to generate
+                        pairwise safety filters between two agents.
+                    </li>
+                    <li>
+                        A key limitation: <strong>computational infeasibility</strong> for higher-dimensional systems (e.g., 3+ agents with relative dynamics).
+                    </li>
+                    <li>
+                        Thus, we apply CBVFs to <strong>pairwise interactions</strong> as building blocks for safe multi-agent coordination.
+                    </li>
+                        <li>With only <strong>two agents</strong>, a single collision-avoidance constraint exists</li>
+                        <ul>
+                            <li>Can be resolved efficiently using a <strong>safety filter</strong></li>
+                        </ul>
+
+                        <li>With <strong>multiple nearby agents</strong>, constraints may conflict:</li>
+                        <ul>
+                            <li>Resolving one pair's constraint may <strong>violate another's</strong></li>
+                            <li>Leads to <strong>multi-agent constraint conflicts</strong> in dense environments</li>
+                        </ul>
+                    </ul>
+                    <div class="row text-center" style="margin-top: 30px;">
+                        <div class="col-md-6">
+                            <h4>Two-Agent Scenario</h4>
+                            <p>Single constraint, easily managed with a safety filter.</p>
+                            <img src="img/twoAgents.gif" alt="2-agent example" class="img-responsive center-block" style="max-height: 300px;">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Three-Agent Scenario</h4>
+                            <p>Conflicting constraints create coordination challenges.</p>
+                            <img src="img/threeAgents.gif" alt="3-agent conflict gif" class="img-responsive center-block" style="max-height: 300px;">
+                        </div>
+                        <p style="margin-top: 15px; font-size: 16px;">
+                            Safety filtering works well for pairs — but with 3+ agents, actions may <em>conflict</em>. Our method proactively avoids such configurations using learned behaviors, then falls back to safety filtering when needed.
+                        </p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
 
                         <center>
                             <figure>
@@ -602,7 +692,7 @@
                     <tr>
                         <center>
                             <span style="font-size:22px">&nbsp;<a
-                                    href='https://www.dropbox.com/s/y6l93szjk7lo96k/ICML%20Slides.pptx?dl=0'>[Slides]</a>
+                                    href='https://docs.google.com/presentation/d/1OCCXdIXF395iKbcpFZEBtOfvmElumBYq/edit?usp=sharing&ouid=115807287257204370024&rtpof=true&sd=true'>[Slides]</a>
                 </table>
 
 
@@ -623,49 +713,23 @@
                 <br />
                 <div class="form-group col-md-12 col-md-offset-0">
                     <textarea id="bibtex" class="form-control" rows="13" readonly>
-@inproceedings{nayak2023scalable,
-  title={Scalable multi-agent reinforcement learning through intelligent information aggregation},
-  author={Nayak, Siddharth and Choi, Kenneth and Ding, Wenqi and Dolan, Sydney and Gopalakrishnan, Karthik and Balakrishnan, Hamsa},
-  booktitle={International Conference on Machine Learning},
-  pages={25817--25833},
-  year={2023},
-  organization={PMLR}
-}                  
+@INPROCEEDINGS{choi_aloor_li_2025safemarl,
+      title={Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety},
+      author={Jason J. Choi and Jasmine Jerry Aloor and Jingqi Li and Maria G. Mendoza and Hamsa Balakrishnan and Claire J. Tomlin},
+      year={2025},
+      address = {Los Angeles, USA},
+      month = {June},
+      booktitle = {Proceedings of Robotics: Science and Systems},
+      url={https://arxiv.org/abs/2505.02293},
+}
+
                     </textarea>
                 </div>
                 <!-- <br /> -->
                 <!-- <br /> -->
-                <br />
-                <div class="form-group col-md-12 col-md-offset-0">
-                    <textarea id="bibtex" class="form-control" rows="16" readonly>
-@InProceedings{pmlr-v211-dolan23a,
-    title = 	 {Satellite Navigation  and Coordination with Limited Information Sharing},
-    author =       {Dolan, Sydney and Nayak, Siddharth and Balakrishnan, Hamsa},
-    booktitle = 	 {Proceedings of The 5th Annual Learning for Dynamics and Control Conference},
-    pages = 	 {1058--1071},
-    year = 	 {2023},
-    editor = 	 {Matni, Nikolai and Morari, Manfred and Pappas, George J.},
-    volume = 	 {211},
-    series = 	 {Proceedings of Machine Learning Research},
-    month = 	 {15--16 Jun},
-    publisher =    {PMLR},
-    pdf = 	 {https://proceedings.mlr.press/v211/dolan23a/dolan23a.pdf},
-    url = 	 {https://proceedings.mlr.press/v211/dolan23a.html},
-    }
+
                     </textarea>
-                </div>
-                <br />
-                <br />
-                <!-- <div class="form-group col-md-12 col-md-offset-0">
-                    <textarea id="bibtex" class="form-control" rows="6" readonly>
-@mastersthesis{Nayak2022,
-    author  = "Siddharth Nagar Nayak",
-    title   = "Learning-based Scheduling",
-    school  = "MIT",
-    year    = "2022"
-    }
-                    </textarea>
-                </div> -->
+
             </div>
         </div>
 
@@ -717,26 +781,17 @@
                     Acknowledgements
                 </h3>
                 <p class="text-justify">
-                    <br />The authors would like to thank the 
-                    <a href="https://supercloud.mit.edu/">MIT SuperCloud</a> 
-                    and the Lincoln Laboratory Supercomputing Center for providing 
-                    high performance computing resources that have contributed to 
-                    the research results reported within this paper. 
-                    The NASA University Leadership initiative (grant #80NSSC20M0163) 
-                    provided funds to assist the authors with their research, 
-                    but this article solely reflects the opinions and conclusions 
-                    of its authors and not any NASA entity. This research was 
-                    sponsored in part by the United States AFRL and the United 
-                    States Air Force Artificial Intelligence Accelerator and was 
-                    accomplished under Cooperative Agreement Number FA8750-19-2-1000. 
-                    The views and conclusions contained in this document are 
-                    those of the authors and should not be interpreted as 
-                    representing the official policies, either expressed or implied, 
-                    of the United States Air Force or the U.S. Government. 
-                    The U.S. Government is authorized to reproduce and distribute 
-                    reprints for Government purposes notwithstanding any copyright 
-                    notion herein. Sydney Dolan was supported by the National 
-                    Science Foundation Graduate Research Fellowship under Grant No. 1650114.
+                    <br />
+                    We thank Dr. Mir Abbas Jalali (Joby), George Gorospe (NASA), Dr. Anthony Evans (Airbus), Inkyu Jang (SNU) and Kanghyun Ryu (UC Berkeley)
+                     for the helpful discussions. Jasmine Aloor and Hamsa Balakrishnan were supported in part by NASA under Grant No. 80NSSC23M0220.
+                     Jason J. Choi, Jingqi Li and Claire J. Tomlin were supported in part by DARPA Assured Autonomy under Grant FA8750-18-C-0101, 
+                     DARPA ANSR under Grant FA8750-23-C-0080, the NASA ULI Program in Safe Aviation Autonomy under Grant 62508787-176172, and 
+                     ONR Basic Research Challenge in Multibody Control Systems under Grant N00014-18-1-2214. 
+                     Jason J. Choi received the support of a fellowship from Kwanjeong Educational Foundation, Korea. 
+                     Jasmine J. Aloor was supported in part by a Mathworks Fellowship. 
+                     Maria G. Mendoza acknowledges support from NASA under the Clean Sheet Airspace Operating Design project MFRA2018-S-0471. 
+                     The authors would like to thank the <a href="https://supercloud.mit.edu/">MIT SuperCloud</a> and the Lincoln Laboratory Supercomputing Center 
+                    for providing high performance computing resources that have contributed to the research results reported within this paper.
                     <br />
                     <br /> This website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and
                     <a href="https://www.matthewtancik.com">Matthew Tannick</a>.
