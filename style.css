@@ -107,3 +107,47 @@ footer {
     max-width: 100px;
   }
 }
+
+body.dark-mode {
+  background: #181a1b;
+  color: #e0e0e0;
+}
+body.dark-mode header,
+body.dark-mode footer {
+  background: #101214;
+  color: #e0e0e0;
+}
+body.dark-mode h2 {
+  color: #7ecfff;
+}
+body.dark-mode .contact {
+  background: #23272a;
+}
+body.dark-mode .cta-buttons .btn {
+  background: #333c4a;
+  color: #fff;
+}
+body.dark-mode .cta-buttons .btn:hover {
+  background: #1e90ff;
+}
+body.dark-mode .links a {
+  color: #7ecfff;
+}
+body.dark-mode .media-img {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+#darkModeToggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+  color: #ffd700;
+  transition: color 0.2s;
+}
+body.dark-mode #darkModeToggle {
+  color: #fff;
+}
