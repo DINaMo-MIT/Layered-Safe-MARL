@@ -65,9 +65,9 @@
                         <h1>
                             Layered-Safe-MARL: Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety
                         </h1>
-                        <p>
-                            RSS 2025
-                        </p>
+                        <h4>
+                            Robotics: Science and Systems (RSS) 2025
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -346,7 +346,7 @@
         <!-- Optional image or diagram -->
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-6 col-md-offset-3 text-center">
-                <img src="img/distance_ranges.png" class="img-responsive img-thumbnail" alt="Distance Ranges Diagram">
+                <img src="img/distance_ranges.png" class="img-responsive img-thumbnail" alt="Distance Ranges Diagram" style="max-height: 200px;">
                 <p style="margin-top: 10px; font-size: 14px;">
                     Illustration of distance-based zones between agents, indicating when safety intervention is necessary.
                 </p>
@@ -365,7 +365,7 @@
         <!-- A. Safe-informed MARL Policy -->
         <div class="col-md-4">
             <div class="method-card">
-            <img src="img/safe_marl_policy.png" alt="Safe-informed MARL Policy" class="method-img">
+            <img src="img/safe_marl_policy.png" alt="Safe-informed MARL Policy" class="method-img" style="max-height: 200px;">
             <div class="method-overlay">
                 <h4>A. Safe-informed MARL Policy</h4>
                 <p>A GNN policy navigates to waypoints while avoiding potential conflicts using local observations.</p>
@@ -376,7 +376,7 @@
         <!-- B. Prioritization -->
         <div class="col-md-4">
             <div class="method-card">
-            <img src="img/prioritization.png" alt="Prioritization" class="method-img">
+            <img src="img/prioritization.png" alt="Prioritization" class="method-img" style="max-height: 200px;">
             <div class="method-overlay">
                 <h4>B. Prioritization</h4>
                 <p>Evaluates CBVF values for nearby agents and selects the lowest (most critical) for filtering.</p>
@@ -387,7 +387,7 @@
         <!-- C. CBVF Safety Filtering -->
         <div class="col-md-4">
             <div class="method-card">
-            <img src="img/safety_filtering.png" alt="CBVF Safety Filtering" class="method-img">
+            <img src="img/safety_filtering.png" alt="CBVF Safety Filtering" class="method-img" style="max-height: 200px;">
             <div class="method-overlay">
                 <h4>C. CBVF Safety Filtering</h4>
                 <p>Replaces unsafe actions with those that remain within the safety set using CBVF logic.</p>
@@ -399,8 +399,8 @@
 
             <!-- Optional: Visual summary of the three-layer method -->
             <div class="row" style="margin-top: 20px;">
-            <div class="col-md-10 col-md-offset-1 text-center">
-                <img src="img/layered_safety_summary.png" class="img-responsive img-thumbnail" alt="Layered Safety Overview">
+            <div class="col-md-12 text-center">
+                <img src="img/layered_safety_summary.png" class="img-responsive img-thumbnail" alt="Layered Safety Overview" style="max-height: 400px;">
                 <p style="margin-top: 10px; font-size: 14px;">
                 Overview of our Layered Safety architecture: (A) Learning-based waypoint navigation, (B) CBVF prioritization, (C) CBVF safety filtering.
                 </p>
@@ -446,201 +446,47 @@
             </div>
             </div>
 
-                    <p class="text-justify">
-                        <h4>
-                            Environments
-                        </h4>
-                        We evaluate our method on the following environments:
-                        <ul>
-                            <li> <b>Target</b>: Each agent tries to reach its preassigned 
-                                goal while avoiding collisions with other entities 
-                                in the environment.</li>
-                            <li> <b>Coverage</b>: Each agent tries to go to a goal 
-                                while avoiding collisions with other entities, and 
-                                ensuring that no more than one agent reaches 
-                                the same goal.</li>
-                            <li> <b>Formation</b>: There is a single landmark (the counterpart 
-                                of a goal for this task) and the agents try to position
-                                themselves in an N-sided regular polygon with the 
-                                landmark at its centre.</li>
-                            <li> <b> Line</b>: There are two landmarks, and the 
-                                agents try to position themselves equally spread 
-                                out in a line between the two.</li>
-                        </ul>
+                    <div class="col-md-12">
+                        <h4>Environments: 1. Safe Navigation of Quadrotors Through Waypoints</h4>
+                        <p>
+                        We evaluate our method on the following quadrotor task, comparing a safety-blind MARL policy with a safety-informed MARL policy.
+                        </p>
+                    </div>
 
-                        <center>
-                            <div class="row">
-                                <div style="float:left; margin-right:20px;">
-                                    <img src="img/navigation.png" height="150" width="150" style="border: 1px solid #555" />
-                                    <p style="text-align:center;">Target</p>
-                                </div>
-                                <div style="float:left; margin-right:20px;">
-                                    <img src="img/spread.png" height="150" width="150" style="border: 1px solid #555" />
-                                    <p style="text-align:center;">Coverage</p>
-                                </div>
-                                <div style="float:left; margin-right:20px;">
-                                    <img src="img/formation.png" height="150" width="150" style="border: 1px solid #555" />
-                                    <p style="text-align:center;">Formation</p>
-                                </div>
-                                <div style="float:left; margin-right:20px;">
-                                    <img src="img/line.png" height="150" width="150" style="border: 1px solid #555" />
-                                    <p style="text-align:center;">Line Formation</p>
-                                </div>
-                            </div>
-                            <figcaption><b><br>Figure 4</b>: The agents are shown in blue circles, the goals are shown in green and obstacles are shown in black in the Target
-                                and Coverage environment. The landmarks are shown in black in the Formation and Line environments.</figcaption>
-                        </center>
-                        
+                    <!-- need to show a picture for environment setup showing waypoints and goals-->
+                    <div class="col-md-10 col-md-offset-2 text-center">
+                        <img src="img/quadrotor_task.png" alt="Quadrotor Waypoints" class="img-responsive" style="max-height: 300px;">
+                    </div>
+                    <!-- Row Titles -->
+                    <div class="col-md-6 text-center">
+                        <h5>1. Safety-blind MARL (with safety filter)</h5>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h5>2. Safety-informed MARL</h5>
+                    </div>
 
-                        
-                        <!-- <center>
-                            <div class="row">
-                                <div class="column">
-                                    <img src="img/navigation.png" style="float: left; height: 150px; margin-right: 2%; margin-bottom: 0.5em; border: 1px solid #555">
-                                </div>
-                                <div class="column">
-                                    <img src="img/spread.png" style="float: left; height: 150px; margin-right: 2%; margin-bottom: 0.5em; border: 1px solid #555">
-                                </div>
-                                <div class="column">
-                                    <img src="img/formation.png" style="float: left; height: 150px; margin-right: 2%; margin-bottom: 0.5em; border: 1px solid #555">
-                                </div>
-                                <div class="column">
-                                    <img src="img/line.png" style="height: 150px; border: 1px solid #555">
-                                </div>
-                                <figcaption><b><br>Figure 4</b>: The <i>Target</i>, <i>Coverage</i>, <i>Formation</i> and <i>Line</i> environments. 
-                                </figcaption>
-                            </div>
-                        </center> -->
-                        <!-- <br> -->
+                    <!-- Safety-blind Videos -->
+                    <div class="col-md-3 text-center">
+                        <p><strong>Experiment</strong></p>
+                        <img src="img/figure5_a_safety_blind_GX010474_540p_smaller-ezgif.com-video-to-gif-converter.gif" class="img-cropped" alt="Quadrotor Safety blind GIF" max-height="150px">
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <p><strong>Plotted Paths</strong></p>
+                        <img src="img/robot_trajectory_safety_blind.gif" class="img-cropped" alt="Quadrotor safety blind plot" max-height="150px">
 
-                        <h4>
-                            Comparisons against other methods
-                        </h4>
-                        We compare our method with a few different MARL baselines 
-                        in the <i>Target</i> environment. 
-                        <br>
+                    </div>
 
-                        <div class="row">
-                            <div class="column">
-                                <img src="img/plots/compare_3_short.png" style="float: left; width: 33%; margin-right: 0%; margin-bottom: 0.5em;">
-                                <!-- <img src="img/plots/compare_3_short.png" alt="Snow" style="width:30%"> -->
-                            </div>
-                            <div class="column">
-                                <img src="img/plots/compare_7_short.png" style="float: left; width: 33%; margin-right: 0%; margin-bottom: 0.5em;">
-                                <!-- <img src="img/plots/compare_3_short.png" alt="Forest" style="width:30%"> -->
-                            </div>
-                            <div class="column">
-                                <img src="img/plots/compare_10_short.png" alt="Mountains" style="width:33%">
-                            </div>
-                            <div class="column">
-                                <img src="img/plots/legend_3_short_transpose.png" alt="Mountains" style="width:100%">
-                            </div>
-                            <figcaption><b><br>Figure 5</b>: Comparison of the 
-                            training performance of InforMARL with the 
-                            best-performing baselines using global and local information. 
-                            InforMARL significantly outperforms most baseline algorithms. 
-                            Although RMAPPO has similar performance, it requires global information. 
-                            Refer to Appendix in the <a href="https://arxiv.org/abs/2211.02127">paper</a> 
-                            for a complete comparison to more baselines. </figcaption>
-                        </div>
+                    <!-- Safety-informed Videos -->
+                    <div class="col-md-3 text-center">
+                        <p><strong>Real Video</strong></p>
+                        <img src="img/figure5_b_safety_informed_with_penalty_GX010492_ours_540p-ezgif.com-video-to-gif-converter.gif" class="img-cropped" alt="Quadrotor Safe GIF" max-height="150px">
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <p><strong>Plotted Paths</strong></p>
+                        <img src="img/robot_trajectory_safety_informed.gif" class="img-cropped" alt="Quadrotor Safe plot" max-height="150px">
+                    </div>
+                    </div>
 
-                        <br>
-                        <br>
-                        The following metrics are compared:
-                        <ul>
-                            <li> Total reward obtained in an episode by all the agents (higher is better). </li>
-                            <li> Fraction of episode taken by the agents to reach the goal, <img src="https://latex.codecogs.com/svg.image?\textbf{T}"/> (lower is better).</li>
-                            <li> The total number of collisions the agents had in the episode, # col (lower is better).</li>
-                            <li> Percent of episodes in which all agents are able to get to their goals, <img src="https://latex.codecogs.com/svg.image?S\%"/> (higher is better).</li>
-                        </ul>
-
-                        The best-performing methods that use global information (RMAPPO) and local information (InforMARL) are highlighted.
-
-                        <figure>
-                            <image src="img/compare_table.png" class="noPadding" alt="Comparison Table" height="350"/>
-                            <figcaption><b><br>Table 1</b>: Comparison of InforMARL 
-                            with other baseline methods, for scenarios with 3, 7, and 10 
-                            agents in the <i>Target</i> environment. The results presented 
-                            represent the average of 100 test episodes.  </figcaption>
-                        </figure>
-
-                        <br>
-
-                        <h4>
-                            Scalability of InforMARL
-                        </h4>
-
-                        <center>
-                            <figure>
-                                <image src="img/scale_table.png" class="center" alt="The weight extraction method" height="350"/>
-                                <figcaption><b><br>Table 2</b>: Test performance of InforMARL for the <i>Target</i> environment, 
-                                when trained on scenarios with 
-                                <img src="https://latex.codecogs.com/svg.image?n"/> 
-                                agents and tested on scenarios with 
-                                <img src="https://latex.codecogs.com/svg.image?m"/> 
-                                agents in the environment. 
-                                <!-- InforMARL is able to achieve a 
-                                success rate of nearly 100% while the fraction 
-                                of episodes taken to reach the goals 
-                                (<img src="https://latex.codecogs.com/svg.image?T"/>) 
-                                is almost constant. Note that we normalize the 
-                                reward and the number of collisions by 
-                                <img src="https://latex.codecogs.com/svg.image?m"/> 
-                                for ease of comparison. -->
-                                </figcaption>
-                            </figure>
-                        </center>
-
-                        <h4>
-                            Performance in Other Task Environments
-                        </h4>
-                        <center>
-                            <figure>
-                                <image src="img/multi_envs.png" class="center" alt="other envs" height="250"/>
-                                <figcaption><b><br>Table 3</b>: Performance of RMAPPO and InforMARL on the
-                                    coverage, formation, and line tasks. We note that Infor-
-                                    MARL was trained on the 3-agent scenario and tested on
-                                    m = {3, 7} agents, while RMAPPO was trained and tested
-                                    on the same number of agents (i.e., with m = n).
-                                </figcaption>
-                            </figure>
-                        </center>
-                        
-                        <h4>
-                            Effect of sensing radius
-                        </h4>
-
-                        <center>
-                            <figure>
-                                <image src="img/plots/compare_rad_v2.png" class="center" alt="The weight extraction method" height="400"/>
-                                <figcaption><b><br>Figure 6</b>: Diminishing 
-                                returns in performance gains from increasing the 
-                                sensing radius for InforMARL. The dashed lines 
-                                are the reward values after saturation for RMAPPO 
-                                in the global (in green) and local (in red) 
-                                information modes, respectively. They are 
-                                provided for reference.
-                                </figcaption>
-                            </figure>
-                        </center>
-
-                        <h4>
-                            Ablation study for Graph Information Aggregation Module
-                        </h4>
-
-                        <center>
-                            <figure>
-                                <image src="img/plots/cent_obs_ablation.png" class="center" alt="The weight extraction method" height="400"/>
-                                <figcaption><b><br>Figure 7</b>: Training 
-                                performance of InforMARL with, and without, the 
-                                graph information aggregation module, for a 
-                                3-agent scenario. The two variants have similar 
-                                sample complexities. However, the critic network 
-                                with the graph information aggregation module has 
-                                fewer parameters than the one without this module.
-                                </figcaption>
-                            </figure>
-                        </center>
 
                     </p>
             </div>
@@ -712,21 +558,22 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <!-- <h3>
-                    Video Presentation (Coming Soon)
-                </h3> -->
+                <h3>
+                    Video Presentation
+                </h3>
 
-                <!-- <br>
+
                 <p align="center">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QSNDFl-6vf8?si=nd8RGJH7-jcsJnYM" 
                     title="YouTube video player" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div> -->
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen></iframe>
+                </div>
 
-                <!-- </p> -->
 
-                <!-- <br> Presented at the Conference <a href="https://conference-website/">Main track</a>. -->
+                <br> Presented at the RSS Conference <a href="https://roboticsconference.org/">Main track</a>.
                 <br>
                 <table align=center width=800px>
                     <br>
@@ -754,15 +601,15 @@
                 <br />
                 <div class="form-group col-md-12 col-md-offset-0">
                     <textarea id="bibtex" class="form-control" rows="13" readonly>
-@INPROCEEDINGS{choi_aloor_li_2025safemarl,
-      title={Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety},
-      author={Jason J. Choi and Jasmine Jerry Aloor and Jingqi Li and Maria G. Mendoza and Hamsa Balakrishnan and Claire J. Tomlin},
-      year={2025},
-      address = {Los Angeles, USA},
-      month = {June},
-      booktitle = {Proceedings of Robotics: Science and Systems},
-      url={https://arxiv.org/abs/2505.02293},
-}
+                        @INPROCEEDINGS{choi_aloor_li_2025safemarl,
+                            title={Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety},
+                            author={Jason J. Choi and Jasmine Jerry Aloor and Jingqi Li and Maria G. Mendoza and Hamsa Balakrishnan and Claire J. Tomlin},
+                            year={2025},
+                            address = {Los Angeles, USA},
+                            month = {June},
+                            booktitle = {Proceedings of Robotics: Science and Systems},
+                            url={https://arxiv.org/abs/2505.02293},
+                        }
 
                     </textarea>
                 </div>
@@ -782,10 +629,23 @@
                 <p class="text-justify">
                     <ul>
 
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Related Links
+                </h3>
+                <h6> Other related papers and works</h6>
+                <br>
+                <p class="text-justify">
+                    <ul>
                         <li>
-                            <a href="https://arxiv.org/abs/2211.03658">Application </a> 
-                            of InforMARL for space traffic management with 
-                            minimum information sharing.
+                            <a href="https://nsidn98.github.io/InforMARL/" target="_blank" rel="noopener noreferrer">InforMARL</a>:
+                            Scalable Multi-Agent Reinforcement Learning through Intelligent Information Aggregation.
+                            <br />
+                        </li>
+                        <li>
+                            <a href="https://arxiv.org/abs/2410.14916" target="_blank" rel="noopener noreferrer">Fair MARL</a>: 
+                            Incorporating greater cooperation and fairness in Multi-Agent Reinforcement Learning through min-max fairness.
                             <br />
                         </li>
                         
@@ -815,6 +675,7 @@
                 </p>
             </div>
         </div>
+
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
