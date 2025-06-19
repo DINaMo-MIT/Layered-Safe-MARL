@@ -135,33 +135,34 @@
             <div class="col-md-4 col-md-offset-4 text-center">
                 <ul class="nav nav-pills nav-justified">
                     <li>
-                        <a href="https://arxiv.org/abs/2505.02293">
+                        <a href="https://arxiv.org/abs/2505.02293" target="_blank" rel="noopener noreferrer">
                             <image src="img/paper.png" height="60px">
                                 <h4><strong>Paper</strong></h4>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/DINaMo-MIT/Layered-Safe-MARL">
+                        <a href="https://github.com/DINaMo-MIT/Layered-Safe-MARL" target="_blank" rel="noopener noreferrer">
                             <image src="img/github.png" height="60px">
                                 <h4><strong>Code</strong></h4>
                         </a>
                     </li>
                     <li>
-                        <a href="https://docs.google.com/presentation/d/1OCCXdIXF395iKbcpFZEBtOfvmElumBYq/edit?usp=sharing&ouid=115807287257204370024&rtpof=true&sd=true">
+                        <a href="https://docs.google.com/presentation/d/1OCCXdIXF395iKbcpFZEBtOfvmElumBYq/edit?usp=sharing&ouid=115807287257204370024&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">
+                            <!-- <a href="https://www.dropbox.com/s/y45cujak4mvaefo/InforMARL%20%28Dec%29%20Slides.pptx?dl=0"> -->
                         <!-- <a href="https://www.dropbox.com/s/y45cujak4mvaefo/InforMARL%20%28Dec%29%20Slides.pptx?dl=0"> -->
                             <image src="img/ppt.png" height="60px">
                                 <h4><strong>Slides</strong></h4>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.youtube.com/watch?v=QSNDFl-6vf8">
+                        <a href="https://www.youtube.com/watch?v=QSNDFl-6vf8" target="_blank" rel="noopener noreferrer">
                             <image src="img/yt.png" height="60px">
                                 <h4><strong>Video</strong></h4>
                         </a>
                     </li>
                     
                     <li>
-                        <a href="img/LayeredSafeMARL_Poster_5_30_final.pdf">
+                        <a href="img/LayeredSafeMARL_Poster_5_30_final.pdf" target="_blank" rel="noopener noreferrer">
                             <image src="img/poster.png" height="60px">
                                 <h4><strong>Poster</strong></h4>
                         </a>
@@ -263,7 +264,7 @@
 
         <div class="row">
             <div class="col-md-12 col-md-offset-1 text-center">
-                <img src="img/CBVF.png" class="img-responsive center-block" style="max-height: 400px;" alt="CBVF Diagram">
+                <img src="img/CBVF.png" class="img-responsive center-block" style="max-height: 300px;" alt="CBVF Diagram">
                 <p style="font-size: 13px; color: #777; margin-top: 10px;"><em>Illustration of CBVF: Combining reachability analysis and control barrier functions for safe two-agent interaction.</em></p>
             </div>
         </div>
@@ -319,87 +320,76 @@
             </div>
         </div>
 
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Distance-Based Interaction Zones</h3>
+                <p class="text-justify">
+                    In order to anticipate and mitigate potential conflicts between agents, we define multiple distance-based regions that characterize the nature and urgency of their interaction:
+                </p>
 
-                        <center>
-                            <figure>
-                                <image src="img/plots/local_nbd_global.png" class="center" alt="The MDP for RL agent" height="340"/>
-                                <figcaption><b><br>Figure 1:</b> MAPPO with the 
-                                    local, neighborhood (with 1, 3, and 5 
-                                    <i>max-nbd-entities</i>), and global 
-                                    information given as states. The plots show 
-                                    the rewards during training for the 3 agent-3 
-                                    obstacle navigation scenario. The means and 
-                                    standard deviations of the rewards over training 
-                                    with five random seeds are shown. Comparing the 
-                                    global information mode to the others, we see 
-                                    that merely providing local information and 
-                                    a na&iumlve concatenation of neighborhood 
-                                    information is not sufficient to learn an 
-                                    optimal policy. </figcaption>
-                            </figure>
-                        </center>
+                <ul style="font-size: 14px;">
+                    <li><strong>Safe Zone:</strong> Agents are far enough apart to require no interaction or coordination.</li>
 
+                    <li><strong>Observation Zone:</strong> Agents are within each other’s sensing range. Coordination may become necessary soon.</li>
 
-                        <br>
-                        <br>
-                        <center>
-                            <figure>
-                                <image src="img/less_info.png" class="center" alt="The MDP for RL agent" height="340"/>
-                                <figcaption><b><br>Figure 2 </b> The title of our paper in an alternate universe where academic papers can be informa(r)l </figcaption>
-                            </figure>
-                        </center>
+                    <li><strong>Potential Conflict Zone:</strong> Agents are close enough that their intended trajectories may intersect. Requires active safety filtering or learned conflict-avoidance behaviors.</li>
 
-                        <!-- <br>
-                        <br> -->
+                    <li><strong>Collision Zone:</strong> Imminent collision risk. Safety filter must intervene to override unsafe actions immediately.</li>
+                </ul>
 
-                    </p>
+                <p class="text-justify">
+                    These zones allow us to blend <strong>reactive safety control</strong> and <strong>proactive learned coordination</strong> depending on the spatial context.
+                </p>
+            </div>
+        </div>
+
+        <!-- Optional image or diagram -->
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <img src="img/distance_ranges.png" class="img-responsive img-thumbnail" alt="Distance Ranges Diagram">
+                <p style="margin-top: 10px; font-size: 14px;">
+                    Illustration of distance-based zones between agents, indicating when safety intervention is necessary.
+                </p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Method
+                    Method: Safety-Informed Multi-Agent RL (MARL)
                 </h3>
                 <p class="text-justify">
-                        This is where our MARL framework for navigation - <i>InforMARL</i> comes into the picture. InforMARL, consists 
-                        of four modules, as shown in Figure 1. We describe each in detail below:
-                    <br>
+                Our approach integrates Multi-Agent Reinforcement Learning (MARL) with model-based safety to enable robust and safe behavior in dense multi-agent scenarios. It consists of three core layers:
+                </p>
+
+                <ul style="font-size: 14px;">
+                <li><strong>A. Safe-informed MARL Policy:</strong> 
+                    A graphical neural network policy is trained to navigate to waypoints while implicitly avoiding potential conflict zones using local observations.
+                </li>
+
+                <li><strong>B. Prioritization:</strong> 
+                    The system evaluates Control Barrier Value Function (CBVF) values for all nearby agents, and selects the most critical one (lowest safety value) for filtering.
+                </li>
+
+                <li><strong>C. CBVF Safety Filtering:</strong> 
+                    A safety filter modifies the original action output of the MARL policy, replacing unsafe actions with ones guaranteed to keep the system in the safe set.
+                </li>
+                </ul>
+            </div>
+            </div>
+
+            <!-- Optional: Visual summary of the three-layer method -->
+            <div class="row" style="margin-top: 20px;">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <img src="img/layered_safety_summary.png" class="img-responsive img-thumbnail" alt="Layered Safety Overview">
+                <p style="margin-top: 10px; font-size: 14px;">
+                Overview of our Layered Safety architecture: (A) Learning-based waypoint navigation, (B) CBVF prioritization, (C) CBVF safety filtering.
+                </p>
+            </div>
+            </div>
 
 
-                    <center>
-                        <figure>
-                            <image src="img/graphMARLArch.v8.png" class="center" alt="The MDP for RL agent" height="340"/>
-                            <figcaption><b><br>Figure 3:</b> Overview of our method - <i>InforMARL</i> </figcaption>
-                        </figure>
-                    </center>
 
-                    
-                    <br>
-                    (i) <u><b>Environment</b></u>: The agents are depicted by green circles, 
-                    the goals are depicted by red rectangles, and the unknown 
-                    obstacles are depicted by gray circles. 
-                    <img src="https://latex.codecogs.com/svg.image?x^{(i)}_{\mathrm{agg}}"/> represents the aggregated information from the 
-                    neighborhood, which is the output of a graph neural network. A graph is created 
-                    by connecting entities within the sensing-radius of the agents. 
-                    <br>
-                    <br>
-                    (ii)  <u><b>Information Aggregation</b></u>: Each agent's observation 
-                    <img src="https://latex.codecogs.com/svg.image?o^{(i)}"/> is 
-                    concatenated with <img src="https://latex.codecogs.com/svg.image?x^{(i)}_{\mathrm{agg}}"/>. 
-                    The inter-agent edges are bidirectional, while the edges 
-                    between agents and non-agent entities are unidirectional. 
-                    <br>
-                    <br>
-                    (iii) <u><b>Graph Information Aggregation</b></u>: The aggregated vector 
-                    from all the agents is averaged to get <img src="https://latex.codecogs.com/svg.image?X_{\mathrm{agg}}"/>.
-                    <br>
-                    <br>
-                    (iv) <u><b>Actor-Critic</b></u>: The concatenated vector 
-                    <img src="https://latex.codecogs.com/svg.image?[o^{(i)}, x^{(i)}_{\mathrm{agg}}]"/> 
-                    is fed into the actor network to get the action, and 
-                    <img src="https://latex.codecogs.com/svg.image?X_{\mathrm{agg}}"/>
-                    is fed into the critic network to get the state-action values.
                     
                     <br>
                     <br>
