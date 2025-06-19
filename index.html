@@ -353,30 +353,49 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Method: Safety-Informed Multi-Agent RL (MARL)
-                </h3>
-                <p class="text-justify">
-                Our approach integrates Multi-Agent Reinforcement Learning (MARL) with model-based safety to enable robust and safe behavior in dense multi-agent scenarios. It consists of three core layers:
-                </p>
 
-                <ul style="font-size: 14px;">
-                <li><strong>A. Safe-informed MARL Policy:</strong> 
-                    A graphical neural network policy is trained to navigate to waypoints while implicitly avoiding potential conflict zones using local observations.
-                </li>
+        <div class="row method-section">
+        <div class="col-md-12">
+            <h3>Method: Safety-Informed Multi-Agent RL (MARL)</h3>
+            <p class="text-justify">
+            Our approach integrates Multi-Agent Reinforcement Learning (MARL) with model-based safety to enable robust and safe behavior in dense multi-agent scenarios. It consists of three core layers:
+            </p>
+        </div>
 
-                <li><strong>B. Prioritization:</strong> 
-                    The system evaluates Control Barrier Value Function (CBVF) values for all nearby agents, and selects the most critical one (lowest safety value) for filtering.
-                </li>
-
-                <li><strong>C. CBVF Safety Filtering:</strong> 
-                    A safety filter modifies the original action output of the MARL policy, replacing unsafe actions with ones guaranteed to keep the system in the safe set.
-                </li>
-                </ul>
+        <!-- A. Safe-informed MARL Policy -->
+        <div class="col-md-4">
+            <div class="method-card">
+            <img src="img/safe_marl_policy.png" alt="Safe-informed MARL Policy" class="method-img">
+            <div class="method-overlay">
+                <h4>A. Safe-informed MARL Policy</h4>
+                <p>A GNN policy navigates to waypoints while avoiding potential conflicts using local observations.</p>
             </div>
             </div>
+        </div>
+
+        <!-- B. Prioritization -->
+        <div class="col-md-4">
+            <div class="method-card">
+            <img src="img/prioritization.png" alt="Prioritization" class="method-img">
+            <div class="method-overlay">
+                <h4>B. Prioritization</h4>
+                <p>Evaluates CBVF values for nearby agents and selects the lowest (most critical) for filtering.</p>
+            </div>
+            </div>
+        </div>
+
+        <!-- C. CBVF Safety Filtering -->
+        <div class="col-md-4">
+            <div class="method-card">
+            <img src="img/safety_filtering.png" alt="CBVF Safety Filtering" class="method-img">
+            <div class="method-overlay">
+                <h4>C. CBVF Safety Filtering</h4>
+                <p>Replaces unsafe actions with those that remain within the safety set using CBVF logic.</p>
+            </div>
+            </div>
+        </div>
+        </div>
+
 
             <!-- Optional: Visual summary of the three-layer method -->
             <div class="row" style="margin-top: 20px;">
@@ -398,11 +417,35 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+        <div class="row results-section">
+            <div class="col-md-12">
                 <h3>
                     Experiments and Results
                 </h3>
+
+
+
+                <h4>Conflict Zones & Safe Sets across Dynamics</h4>
+                <p class="text-justify">
+                The CBVF enables the computation of conflict zones and safe sets for agents with different dynamics. Below we show results for two types of aerial vehicles:
+                </p>
+            </div>
+
+            <!-- Quadrotor -->
+            <div class="col-md-6 text-center">
+                <img src="img/quadrotorPic.png" alt="Quadrotor Safe Set" class="img-responsive result-image" style="max-height: 200px; margin: 0 auto;">
+                <h4>1. Quadrotor</h4>
+                <p>Can hover & hold position for safety</p>
+            </div>
+
+            <!-- Wingborne Air Taxi -->
+            <div class="col-md-6 text-center">
+                <img src="img/airTaxi.png" alt="Wingborne Air Taxi Safe Set" class="img-responsive result-image" style="max-height: 200px; margin: 0 auto;">
+                <h4>2. Wingborne Air Taxi</h4>
+                <p>Needs active turn for safety (<i>v<sub>min</sub> &gt; 0</i>)</p>
+            </div>
+            </div>
+
                     <p class="text-justify">
                         <h4>
                             Environments
