@@ -462,30 +462,32 @@
             <div class="col-md-6 text-center">
                 <h5>2. Safety-informed MARL</h5>
             </div>
-            <!-- Safety-blind Videos -->
-            <div class="col-md-3 text-center">
-                <p><strong>Safety-blind Experiment</strong></p>
-                <img src="img/figure5_a_safety_blind_GX010474_540p_smaller-ezgif.com-video-to-gif-converter.gif" class="img-cropped" alt="Quadrotor Safety blind GIF" style="max-height: 250px">
+            <div class="row">
+                <!-- Safety-blind Videos -->
+                <div class="col-md-4 text-center">
+                    <p><strong>Safety-blind Experiment</strong></p>
+                    <img src="img/figure5_a_safety_blind.gif" class="img-responsive" alt="Quadrotor Safety blind GIF" style="max-height: 500px">
+                </div>
+                <div class="col-md-2 text-center">
+                    <p><strong>Plotted Paths</strong></p>
+                    <img src="img/robot_trajectory_safety_blind.gif" class="img-responsive" alt="Quadrotor safety blind plot" style="max-height:550px">
+                </div>
+                <!-- Safety-informed Videos -->
+                <div class="col-md-4 text-center">
+                    <p><strong>Safety-informed Experiment</strong></p>
+                    <img src="img/figure5_b_safety_informed_with_penalty_GX010492_ours_540p-ezgif.com-video-to-gif-converter.gif" class="img-responsive" alt="Quadrotor Safe GIF" style="max-height: 480px">
+                </div>
+                <div class="col-md-2 text-center">
+                    <p><strong>Plotted Paths</strong></p>
+                    <img src="img/robot_trajectory_safety_informed.gif" class="img-responsive" alt="Quadrotor Safe plot" style="max-height: 550px">
+                </div>
             </div>
-            </div>
-            <div class="col-md-3 text-center">
-                <p><strong>Plotted Paths</strong></p>
-                <img src="img/robot_trajectory_safety_blind.gif" class="img-cropped" alt="Quadrotor safety blind plot" style="max-height:250px">
-            </div>
-            <!-- Safety-informed Videos -->
-            <div class="col-md-3 text-center">
-                <p><strong>Safety-informed Experiment</strong></p>
-                <img src="img/figure5_b_safety_informed_with_penalty_GX010492_ours_540p-ezgif.com-video-to-gif-converter.gif" class="img-cropped" alt="Quadrotor Safe GIF" style="max-height: 250px">
-            </div>
-            <div class="col-md-3 text-center">
-                <p><strong>Plotted Paths</strong></p>
-                <img src="img/robot_trajectory_safety_informed.gif" class="img-cropped" alt="Quadrotor Safe plot" style="max-height: 250px">
             </div>
             <br>
             <!-- image for hardware plot-->
             <div class="col-md-6 col-md-offset-3 text-center">
                 <p><strong>Crazyflie hardware experiment with the MARL policy learned by our method: Trajectory Plot</strong></p>
-                <img src="img/hardware_safemarl.png" class="img-cropped" alt="Quadrotor Safe hardware plot" style="max-height: 300px">
+                <img src="img/hardware_safemarl.png" class="img-responsive" alt="Quadrotor Safe hardware plot" style="max-height: 300px">
             </div>
 
             <!-- comparison with other state of the art safety methods and performance measured in terms of goal reaching rate and number of near collisions-->
@@ -499,64 +501,64 @@
 
 
             <div class="row" style="margin-top: 60px;">
-            <div class="col-md-12 text-center">
-                <h4>Environments: 2. Autonomous Urban Air Mobility Traffic Management – Air Taxi Operation</h4>
-                <p class="text-justify">
-                We simulate UAM operations at peak density, with each vertiport supporting 125 aircraft/hour (2 operations/min).
-                Air corridors are separated by 1500 ft vertical spacing, representing a realistic high-demand aerial network.
-                </p>
-            </div>
-
-            <!-- Scenario 1: Merging -->
-            <div class="col-md-12" style="margin-top: 30px;">
-                <h5>Scenario 1: Merging</h5>
-                <p>Vehicles depart from various locations in the Bay Area, merging into an aerial corridor toward San Francisco.</p>
-            </div>
-
-            <!-- Labels -->
-            <div class="col-md-6 text-center"><strong>Safety-blind MARL (safety filtered)</strong></div>
-            <div class="col-md-6 text-center"><strong>Safety-informed MARL</strong></div>
-
-            <!-- Merging GIFs -->
-            <div class="col-md-6 text-center">
-                <p>Safety Blind Merging</p>
-                <div class="gif-crop">
-                <img src="img/merge_safety_blind.gif" alt="Merging Blind Real" class="img-cropped" style="max-height: 350px;">
+                <div class="col-md-12 text-center">
+                    <h4>Environments: 2. Autonomous Urban Air Mobility Traffic Management – Air Taxi Operation</h4>
+                    <p class="text-justify">
+                    We simulate UAM operations at peak density, with each vertiport supporting 125 aircraft/hour (2 operations/min).
+                    Air corridors are separated by 1500 ft vertical spacing, representing a realistic high-demand aerial network.
+                    </p>
                 </div>
-            </div>
 
-            <div class="col-md-6 text-center">
-                <p>Safety Informed Merging</p>
-                <div class="gif-crop">
-                <img src="img/merge_ours.gif" alt="Merging Informed Real" class="img-cropped" style="max-height: 350px;">
+                <!-- Scenario 1: Merging -->
+                <div class="col-md-12" style="margin-top: 30px;">
+                    <h5>Scenario 1: Merging</h5>
+                    <p>Vehicles depart from various locations in the Bay Area, merging into an aerial corridor toward San Francisco.</p>
                 </div>
-            </div>
 
+                <!-- Labels -->
+                <div class="col-md-6 text-center"><strong>Safety-blind MARL (safety filtered)</strong></div>
+                <div class="col-md-6 text-center"><strong>Safety-informed MARL</strong></div>
 
-            <!-- Scenario 2: Intersection -->
-            <div class="col-md-12" style="margin-top: 40px;">
-                <h5>Scenario 2: Intersection</h5>
-                <p>Two high-volume air traffic streams intersect mid-air over the Bay Area, testing agents' conflict resolution in constrained airspace.</p>
-            </div>
-
-            <!-- Labels -->
-            <div class="col-md-6 text-center"><strong>Safety-blind MARL (safety filtered)</strong></div>
-            <div class="col-md-6 text-center"><strong>Safety-informed MARL</strong></div>
-
-            <!-- Intersection GIFs -->
-            <div class="col-md-6 text-center">
-                <p>Safety Blind Intersection</p>
-                <div class="gif-crop">
-                <img src="img/intersection_safety_blind.gif" alt="Intersection Blind Real" class="img-cropped" style="max-height: 350px;">
+                <!-- Merging GIFs -->
+                <div class="col-md-6 text-center">
+                    <p>Safety Blind Merging</p>
+                    <div class="gif-crop">
+                    <img src="img/merge_safety_blind.gif" alt="Merging Blind Real" class="img-cropped" style="max-height: 350px;">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6 text-center">
-                <p>Safety Informed Intersection</p>
-                <div class="gif-crop">
-                <img src="img/intersection_teaser_10_-ezgif.com-video-to-gif-converter.gif" alt="Intersection Informed Real" class="img-cropped" style="max-height: 350px;">
+                <div class="col-md-6 text-center">
+                    <p>Safety Informed Merging</p>
+                    <div class="gif-crop">
+                    <img src="img/merge_ours.gif" alt="Merging Informed Real" class="img-cropped" style="max-height: 350px;">
+                    </div>
                 </div>
-            </div>
+
+
+                <!-- Scenario 2: Intersection -->
+                <div class="col-md-12" style="margin-top: 40px;">
+                    <h5>Scenario 2: Intersection</h5>
+                    <p>Two high-volume air traffic streams intersect mid-air over the Bay Area, testing agents' conflict resolution in constrained airspace.</p>
+                </div>
+
+                <!-- Labels -->
+                <div class="col-md-6 text-center"><strong>Safety-blind MARL (safety filtered)</strong></div>
+                <div class="col-md-6 text-center"><strong>Safety-informed MARL</strong></div>
+
+                <!-- Intersection GIFs -->
+                <div class="col-md-6 text-center">
+                    <p>Safety Blind Intersection</p>
+                    <div class="gif-crop">
+                    <img src="img/intersection_safety_blind.gif" alt="Intersection Blind Real" class="img-cropped" style="max-height: 350px;">
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <p>Safety Informed Intersection</p>
+                    <div class="gif-crop">
+                    <img src="img/intersection_teaser_10_-ezgif.com-video-to-gif-converter.gif" alt="Intersection Informed Real" class="img-cropped" style="max-height: 350px;">
+                    </div>
+                </div>
             </div>
 
             </div>
