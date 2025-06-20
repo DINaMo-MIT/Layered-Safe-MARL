@@ -57,10 +57,16 @@ h2 {
 }
 
 .media-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: 1.5rem;
-  margin-top: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.media-grid > div {
+  min-width: 260px;
+  flex: 0 0 auto;
 }
 
 .media-img {
