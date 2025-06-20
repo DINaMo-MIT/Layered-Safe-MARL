@@ -204,7 +204,7 @@
             </div>
         </div>
         <div class="row" style="margin-top: 40px;">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <h3>Motivation</h3>
 
                 <p class="text-justify">
@@ -263,14 +263,14 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12 col-md-offset-1 text-center">
+            <div class="col-md-8 col-md-offset-2 text-center">
                 <img src="img/CBVF.png" class="img-responsive center-block" style="max-height: 300px;" alt="CBVF Diagram">
                 <p style="font-size: 13px; color: #777; margin-top: 10px;"><em>Illustration of CBVF: Combining reachability analysis and control barrier functions for safe two-agent interaction.</em></p>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-12 col-md-offset-1">
+            <div class="col-md-8 col-md-offset-2">
                 <ul style="font-size: 14px; margin-top: 20px;">
                     <li>
                         In this work, we use a model-based safety certificate called the <strong>Control Barrier-Value Function (CBVF)</strong>,
@@ -301,27 +301,30 @@
                             <li>Leads to <strong>multi-agent constraint conflicts</strong> in dense environments</li>
                         </ul>
                     </ul>
-                    <div class="row text-center" style="margin-top: 30px;">
-                        <div class="col-md-6">
-                            <h4>Two-Agent Scenario</h4>
-                            <p>Single constraint, easily managed with a safety filter.</p>
-                            <img src="img/twoAgents.gif" alt="2-agent example" class="img-responsive center-block" style="max-height: 300px;">
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Three-Agent Scenario</h4>
-                            <p>Conflicting constraints create coordination challenges.</p>
-                            <img src="img/threeAgents.gif" alt="3-agent conflict gif" class="img-responsive center-block" style="max-height: 300px;">
-                        </div>
-                        <p style="margin-top: 15px; font-size: 16px;">
-                            Safety filtering works well for pairs — but with 3+ agents, actions may <em>conflict</em>. Our method proactively avoids such configurations using learned behaviors, then falls back to safety filtering when needed.
-                        </p>
-                    </div>
+
                 </ul>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-12 text-center">
+            <!-- <div class="row text-center" style="margin-top: 30px;"> -->
+                <div class="col-md-6">
+                    <h4>Two-Agent Scenario</h4>
+                    <p>Single constraint, easily managed with a safety filter.</p>
+                    <img src="img/twoAgents.gif" alt="2-agent example" class="img-responsive center-block" style="max-height: 300px;">
+                </div>
+                <div class="col-md-6">
+                    <h4>Three-Agent Scenario</h4>
+                    <p>Conflicting constraints create coordination challenges.</p>
+                    <img src="img/threeAgents.gif" alt="3-agent conflict gif" class="img-responsive center-block" style="max-height: 300px;">
+                </div>
+                <p style="margin-top: 15px; font-size: 16px;">
+                    Safety filtering works well for pairs — but with 3+ agents, actions may <em>conflict</em>. Our method proactively avoids such configurations using learned behaviors, then falls back to safety filtering when needed.
+                </p>
+            </div>
+        </div>
         <div class="row" style="margin-top: 40px;">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <h3>Method: Distance-Based Interaction Zones</h3>
                 <p class="text-justify">
                     In order to anticipate and mitigate potential conflicts between agents, we define multiple distance-based regions that characterize the nature and urgency of their interaction:
@@ -355,23 +358,23 @@
 
 
         <div class="row method-section">
-        <div class="col-md-12">
-            <h3>Method: Safety-Informed Multi-Agent RL (MARL)</h3>
-            <p class="text-justify">
-            Our approach integrates Multi-Agent Reinforcement Learning (MARL) with model-based safety to enable robust and safe behavior in dense multi-agent scenarios. It consists of three core layers:
-            </p>
-        </div>
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Method: Safety-Informed Multi-Agent RL (MARL)</h3>
+                <p class="text-justify">
+                Our approach integrates Multi-Agent Reinforcement Learning (MARL) with model-based safety to enable robust and safe behavior in dense multi-agent scenarios. It consists of three core layers:
+                </p>
+            </div>
 
-        <!-- A. Safe-informed MARL Policy -->
-        <div class="col-md-4">
-            <div class="method-card">
-            <img src="img/safe_marl_policy.png" alt="Safe-informed MARL Policy" class="method-img" style="max-height: 200px;">
-            <div class="method-overlay">
-                <h4>A. Safe-informed MARL Policy</h4>
-                <p>A GNN policy navigates to waypoints while avoiding potential conflicts using local observations.</p>
+            <!-- A. Safe-informed MARL Policy -->
+            <div class="col-md-4">
+                <div class="method-card">
+                <img src="img/safe_marl_policy.png" alt="Safe-informed MARL Policy" class="method-img" style="max-height: 200px;">
+                <div class="method-overlay">
+                    <h4>A. Safe-informed MARL Policy</h4>
+                    <p>A GNN policy navigates to waypoints while avoiding potential conflicts using local observations.</p>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
 
         <!-- B. Prioritization -->
         <div class="col-md-4">
@@ -394,7 +397,7 @@
             </div>
             </div>
         </div>
-        </div>
+
 
 
             <!-- Optional: Visual summary of the three-layer method -->
@@ -409,16 +412,10 @@
 
 
 
-                    
-                    <br>
-                    <br>
-                    <br>
-
-            </div>
         </div>
 
         <div class="row results-section">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Experiments and Results
                 </h3>
@@ -446,116 +443,124 @@
             </div>
             </div>
 
-                    <div class="col-md-12">
-                        <h4>Environments: 1. Safe Navigation of Quadrotors Through Waypoints</h4>
-                        <p>
-                        We evaluate our method on the following quadrotor task, comparing a safety-blind MARL policy with a safety-informed MARL policy.
-                        </p>
-                    </div>
+            <div class="col-md-8 col-md-offset-2">
+                <h4>Environments: 1. Safe Navigation of Quadrotors Through Waypoints</h4>
+                <p>
+                We evaluate our method on the following quadrotor task, comparing a safety-blind MARL policy with a safety-informed MARL policy.
+                </p>
+            </div>
 
-                    <!-- need to show a picture for environment setup showing waypoints and goals-->
-                    <div class="col-md-10 col-md-offset-2 text-center">
-                        <img src="img/quadrotor_task.png" alt="Quadrotor Waypoints" class="img-responsive" style="max-height: 300px;">
-                    </div>
-                    <!-- Row Titles -->
-                    <div class="col-md-6 text-center">
-                        <h5>1. Safety-blind MARL (with safety filter)</h5>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <h5>2. Safety-informed MARL</h5>
-                    </div>
+            <!-- need to show a picture for environment setup showing waypoints and goals-->
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <img src="img/quadrotor_task.png" alt="Quadrotor Waypoints" class="img-responsive" style="max-height: 300px;">
+            </div>
+            <!-- Row Titles -->
+            <div class="col-md-6 text-center">
+                <h5>1. Safety-blind MARL (with safety filter)</h5>
+            </div>
+            <div class="col-md-6 text-center">
+                <h5>2. Safety-informed MARL</h5>
+            </div>
 
-                    <!-- Safety-blind Videos -->
-                    <div class="col-md-4 text-center">
-                        <p><strong>Experiment</strong></p>
-                        <img src="img/figure5_a_safety_blind_GX010474_540p_smaller-ezgif.com-video-to-gif-converter.gif" class="img-cropped" alt="Quadrotor Safety blind GIF" max-height="150px">
-                    </div>
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <p><strong>Plotted Paths</strong></p>
-                        <img src="img/robot_trajectory_safety_blind.gif" class="img-cropped" alt="Quadrotor safety blind plot" max-height="100px">
+            <!-- Safety-blind Videos -->
+            <div class="col-md-4 text-center">
+                <p><strong>Experiment</strong></p>
+                <img src="img/figure5_a_safety_blind_GX010474_540p_smaller-ezgif.com-video-to-gif-converter.gif" class="img-cropped" alt="Quadrotor Safety blind GIF" max-height="150px">
+            </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <p><strong>Plotted Paths</strong></p>
+                <img src="img/robot_trajectory_safety_blind.gif" class="img-cropped" alt="Quadrotor safety blind plot" max-height="100px">
 
-                    </div>
+            </div>
 
-                    <!-- Safety-informed Videos -->
-                    <div class="col-md-4 text-center">
-                        <p><strong>Experiment</strong></p>
-                        <img src="img/figure5_b_safety_informed_with_penalty_GX010492_ours_540p-ezgif.com-video-to-gif-converter.gif" class="img-cropped" alt="Quadrotor Safe GIF" max-height="150px">
-                    </div>
-                    <div class="col-md-2 text-center">
-                        <p><strong>Plotted Paths</strong></p>
-                        <img src="img/robot_trajectory_safety_informed.gif" class="img-cropped" alt="Quadrotor Safe plot" max-height="100px">
-                    </div>
-                    <!-- image for hardware plot-->
-                    <div class="col-md-2 text-center">
-                        <p><strong>Crazyflie hardware experiment with the MARL policy learned by our method: Trajectory Plot</strong></p>
-                        <img src="img/hardware_safemarl.png" class="img-cropped" alt="Quadrotor Safe hardware plot" max-height="100px">
-                    </div>
+            <!-- Safety-informed Videos -->
+            <div class="col-md-4 text-center">
+                <p><strong>Experiment</strong></p>
+                <img src="img/figure5_b_safety_informed_with_penalty_GX010492_ours_540p-ezgif.com-video-to-gif-converter.gif" class="img-cropped" alt="Quadrotor Safe GIF" max-height="150px">
+            </div>
+            <div class="col-md-2 text-center">
+                <p><strong>Plotted Paths</strong></p>
+                <img src="img/robot_trajectory_safety_informed.gif" class="img-cropped" alt="Quadrotor Safe plot" max-height="100px">
+            </div>
+            <br>
+            <!-- image for hardware plot-->
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <p><strong>Crazyflie hardware experiment with the MARL policy learned by our method: Trajectory Plot</strong></p>
+                <img src="img/hardware_safemarl.png" class="img-cropped" alt="Quadrotor Safe hardware plot" max-height="100px">
+            </div>
+
+            <!-- comparison with other state of the art safety methods and performance measured in terms of goal reaching rate and number of near collisions-->
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h4>Performance Comparison</h4>
+                <p class="text-justify">
+                    Our method outperforms other state-of-the-art safety methods in terms of goal reaching rate and number of near collisions. We also test cases with higher number of agents (up to 8) and show that our method scales well.
+                    The table below summarizes the results:
+                </p>
+                <img src="img/quadrotor_performance.png" alt="Quadrotor Performance Comparison" class="img-responsive center-block" style="max-height: 150px;">
 
 
+            <div class="row" style="margin-top: 60px;">
+            <div class="col-md-8 col-md-offset-2">
+                <h4>Environments: 2. Autonomous Urban Air Mobility Traffic Management – Air Taxi Operation</h4>
+                <p>
+                We simulate UAM operations at peak density, with each vertiport supporting 125 aircraft/hour (2 operations/min).
+                Air corridors are separated by 1500 ft vertical spacing, representing a realistic high-demand aerial network.
+                </p>
+            </div>
 
-                <div class="row" style="margin-top: 60px;">
-                <div class="col-md-12">
-                    <h4>Environments: 2. Autonomous Urban Air Mobility Traffic Management – Air Taxi Operation</h4>
-                    <p>
-                    We simulate UAM operations at peak density, with each vertiport supporting 125 aircraft/hour (2 operations/min).
-                    Air corridors are separated by 1500 ft vertical spacing, representing a realistic high-demand aerial network.
-                    </p>
+            <!-- Scenario 1: Merging -->
+            <div class="col-md-12" style="margin-top: 30px;">
+                <h5>Scenario 1: Merging</h5>
+                <p>Vehicles depart from various locations in the Bay Area, merging into an aerial corridor toward San Francisco.</p>
+            </div>
+
+            <!-- Labels -->
+            <div class="col-md-6 text-center"><strong>Safety-blind MARL (safety filtered)</strong></div>
+            <div class="col-md-6 text-center"><strong>Safety-informed MARL</strong></div>
+
+            <!-- Merging GIFs -->
+            <div class="col-md-6 text-center">
+                <p>Safety Blind Merging</p>
+                <div class="gif-crop">
+                <img src="img/merge_safety_blind.gif" alt="Merging Blind Real" class="img-cropped" max-height="100px">
                 </div>
+            </div>
 
-                <!-- Scenario 1: Merging -->
-                <div class="col-md-12" style="margin-top: 30px;">
-                    <h5>Scenario 1: Merging</h5>
-                    <p>Vehicles depart from various locations in the Bay Area, merging into an aerial corridor toward San Francisco.</p>
+            <div class="col-md-6 text-center">
+                <p>Safety Informed Merging</p>
+                <div class="gif-crop">
+                <img src="img/merge_ours.gif" alt="Merging Informed Real" class="img-cropped" max-height="100px">
                 </div>
+            </div>
 
-                <!-- Labels -->
-                <div class="col-md-6 text-center"><strong>Safety-blind MARL (safety filtered)</strong></div>
-                <div class="col-md-6 text-center"><strong>Safety-informed MARL</strong></div>
 
-                <!-- Merging GIFs -->
-                <div class="col-md-6 text-center">
-                    <p>Safety Blind Merging</p>
-                    <div class="gif-crop">
-                    <img src="img/merge_safety_blind.gif" alt="Merging Blind Real" class="img-cropped" max-height="100px">
-                    </div>
+            <!-- Scenario 2: Intersection -->
+            <div class="col-md-12" style="margin-top: 40px;">
+                <h5>Scenario 2: Intersection</h5>
+                <p>Two high-volume air traffic streams intersect mid-air over the Bay Area, testing agents' conflict resolution in constrained airspace.</p>
+            </div>
+
+            <!-- Labels -->
+            <div class="col-md-6 text-center"><strong>Safety-blind MARL (safety filtered)</strong></div>
+            <div class="col-md-6 text-center"><strong>Safety-informed MARL</strong></div>
+
+            <!-- Intersection GIFs -->
+            <div class="col-md-6 text-center">
+                <p>Safety Blind Intersection</p>
+                <div class="gif-crop">
+                <img src="img/intersection_safety_blind.gif" alt="Intersection Blind Real" class="img-cropped" max-height="100px">
                 </div>
+            </div>
 
-                <div class="col-md-6 text-center">
-                    <p>Safety Informed Merging</p>
-                    <div class="gif-crop">
-                    <img src="img/merge_ours.gif" alt="Merging Informed Real" class="img-cropped" max-height="100px">
-                    </div>
+            <div class="col-md-6 text-center">
+                <p>Safety Informed Intersection</p>
+                <div class="gif-crop">
+                <img src="img/intersection_teaser_10_-ezgif.com-video-to-gif-converter.gif" alt="Intersection Informed Real" class="img-cropped" max-height="100px">
                 </div>
+            </div>
+            </div>
 
-
-                <!-- Scenario 2: Intersection -->
-                <div class="col-md-12" style="margin-top: 40px;">
-                    <h5>Scenario 2: Intersection</h5>
-                    <p>Two high-volume air traffic streams intersect mid-air over the Bay Area, testing agents' conflict resolution in constrained airspace.</p>
-                </div>
-
-                <!-- Labels -->
-                <div class="col-md-6 text-center"><strong>Safety-blind MARL (safety filtered)</strong></div>
-                <div class="col-md-6 text-center"><strong>Safety-informed MARL</strong></div>
-
-                <!-- Intersection GIFs -->
-                <div class="col-md-6 text-center">
-                    <p>Safety Blind Intersection</p>
-                    <div class="gif-crop">
-                    <img src="img/intersection_safety_blind.gif" alt="Intersection Blind Real" class="img-cropped" max-height="100px">
-                    </div>
-                </div>
-
-                <div class="col-md-6 text-center">
-                    <p>Safety Informed Intersection</p>
-                    <div class="gif-crop">
-                    <img src="img/intersection_teaser_10_-ezgif.com-video-to-gif-converter.gif" alt="Intersection Informed Real" class="img-cropped" max-height="100px">
-                    </div>
-                </div>
-                </div>
-
-                    </p>
             </div>
         </div>
 
@@ -567,27 +572,17 @@
                     <p class="text-justify">
                         <ul>
                             <li> 
-                                We showed that having just local observations as 
-                                states is not enough for standard MARL algorithms 
-                                to learn meaningful policies. 
+                                Layered architecture: Combines CBVF safety filtering with MARL policy for safe, efficient navigation.
+
                             </li>
 
                             <li> 
-                                Along with this, we also showed that 
-                                albeit na&iumlvely concatenating state information 
-                                about all the entities in the environment helps 
-                                to learn good policies, they are not transferable 
-                                to other scenarios with a different number of 
-                                entities than what it was trained on.
+                                Proven performance: Faster travel, more waypoints covered, fewer conflicts. 
+
                             </li>
 
                             <li> 
-                                InforMARL is able to learn transferable policies 
-                                using standard MARL algorithms using just local 
-                                observations and an aggregated neighborhood 
-                                information vector. Furthermore, it has better 
-                                sample complexity than other standard MARL 
-                                algorithms that use global observation.
+                                Broad evaluation: Tested on quadrotor and fixed-wing dynamics in complex scenarios.
                             </li>
                         </ul>
                         <br>
@@ -609,13 +604,11 @@
                             </li>
 
                             <li> 
-                                Adding a safety guarantee layer for the actions 
-                                of the agents to avoid collisions at all costs.
+                                Investigate decomposition techniques and learning-based reachability analysis.
                             </li>
 
                             <li> 
-                                Investigate the use of InforMARL for curriculum 
-                                learning and transfer learning to more complex environments.
+                                Further investigation is needed to assess how communication constraints affect coordination and safety in decentralized multi-agent systems. 
                             </li>
                         </ul>
                         <!-- <br> -->
@@ -651,7 +644,7 @@
                 </table>
 
 
-                <object width="800" height="500" type="application/pdf" data="img/ICML_Slides.pdf?#zoom=60&scrollbar=0&toolbar=0&navpanes=0">
+                <object width="800" height="500" type="application/pdf" data="img/RSS_video_slidedeck.pdf?#zoom=60&scrollbar=0&toolbar=0&navpanes=0">
                     <p>Click on the link if PDF is not rendered.</p>
                 </object>
 
@@ -659,7 +652,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <h2>
                     Citation
                 </h2>
@@ -690,7 +683,7 @@
 
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Related Links
                 </h3>
@@ -738,7 +731,7 @@
 
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Acknowledgements
                 </h3>
