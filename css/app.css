@@ -143,11 +143,11 @@ body.dark-mode #darkModeToggle {
 .toc-sidebar a:hover {
   text-decoration: underline;
 }
-main {
+/* main {
   margin-left: 220px; /* add space for sidebar */
-  padding: 2rem 1rem;
-}
-@media (max-width: 800px) {
+  /* padding: 2rem 1rem; */
+/* } */
+/* @media (max-width: 800px) {
   .toc-sidebar {
     position: static;
     width: 100%;
@@ -159,7 +159,7 @@ main {
   main {
     margin-left: 0;
   }
-}
+} */
 /* .img-crop {
   width: 100%;
   height: 200px; /* Adjust this as needed */
