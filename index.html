@@ -56,17 +56,28 @@
 </head>
 
 <body>
+  <nav class="top-toc-bar">
+    <ul>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#motivation">Motivation</a></li>
+      <li><a href="#methods">Methods</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#citation">Citation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
   <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
     <header>
         <div class="hero">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
+                        <br>
                         <h1>
                             Layered-Safe-MARL: Resolving Conflicting Constraints in Multi-Agent Reinforcement Learning with Layered Safety
                         </h1>
                         <h4>
-                            Robotics: Science and Systems (RSS) 2025
+                            <a href="https://roboticsconference.org/" target="_blank">Robotics: Science and Systems (RSS) 2025</a>
                         </h4>
                     </div>
                 </div>
@@ -172,8 +183,16 @@
             </div>
         </div>
 
-
-
+        <!-- <nav class="toc-sidebar">
+            <ul>
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav> -->
+        <main>
+        <section id="abstract">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
@@ -203,6 +222,8 @@
                     </p>
             </div>
         </div>
+        </section>
+        <section id="motivation">
         <div class="row" style="margin-top: 40px;">
             <div class="col-md-8 col-md-offset-2">
                 <h3>Motivation</h3>
@@ -323,6 +344,8 @@
                 </p>
             </div>
         </div>
+        </section>
+        <section id="methods">
         <div class="row" style="margin-top: 40px;">
             <div class="col-md-8 col-md-offset-2">
                 <h3>Method: Distance-Based Interaction Zones</h3>
@@ -428,7 +451,8 @@
                 The CBVF enables the computation of conflict zones and safe sets for agents with different dynamics. Below we show results for two types of aerial vehicles:
                 </p>
             </div>
-
+            </section>
+            <section id="results">
             <!-- Quadrotor -->
             <div class="col-md-6 text-center">
                 <img src="img/quadrotorPic.png" alt="Quadrotor Safe Set" class="img-responsive result-image" style="max-height: 200px; margin: 0 auto;">
@@ -650,7 +674,8 @@
 
             </div>
         </div>
-
+        </section>
+        <section id="citation">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2>
@@ -728,8 +753,16 @@
                 </p>
             </div>
         </div>
-
-
+        </section>
+        <section id="contact">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h2>
+                    Contact
+                </h2>
+                <p class="text-justify">
+                    For any questions, please contact <a href="mailto:jjaloor@mit.edu"><span class="noselect">Jasmine</span></a>, <a href="mailto:jjaloor@mit.edu"><span class="noselect">Jason</span></a> or <a href="mailto:jjaloor@mit.edu"><span class="noselect">Jingqi</span></a>.
+        </section>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
@@ -756,6 +789,7 @@
     </div>
 
     <script src="darkmode.js"></script>
+</main>
 </body>
 
 </html>
